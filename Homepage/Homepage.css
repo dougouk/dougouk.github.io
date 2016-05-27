@@ -39,6 +39,7 @@ header .row{
     background-repeat: no-repeat;
     padding-top: 20%;
     padding-bottom: 20%;
+    min-height: 800px;
 }
 
 footer .col-sm-8{
