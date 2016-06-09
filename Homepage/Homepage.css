@@ -15,22 +15,21 @@ and open the template in the editor.
     position: relative;
 
 }
-header h1{
+#DantasticH1{
     font-size: 5em;
     font-family: serif;
 }
-header nav{
+#DantasticNav{
     display: flex;
     justify-content: flex-end;
 }
 
-header p{
-    padding: 0 20px;
+#DantasticNav p{
     margin: 0;
     font-size: 2em;
 }
 
-header .row{
+#Dantastic{
     align-items: center;
     display: flex;
 }
@@ -40,7 +39,7 @@ header .row{
     background-repeat: no-repeat;
     padding-top: 20%;
     padding-bottom: 20%;
-    min-height:500px;
+    min-height:800px;
 }
 
 footer .col-sm-8{
