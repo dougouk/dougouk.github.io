@@ -86,6 +86,9 @@ footer ul{
   font-size: 2em;
 }
 
+.active {
+    background-color:#556677;
+}
 #CanIPlay{
   background: url(/../resources/League.png) no-repeat center;
   background-size: cover;
