@@ -3,6 +3,8 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
+
+
 /*
     Created on : 17-May-2016, 1:20:25 AM
     Author     : Dan
@@ -13,24 +15,21 @@ and open the template in the editor.
     text-align: center;
     font-weight: 100;
     position: relative;
-
 }
-#DantasticH1{
+#DantasticH1 {
     font-size: 5em;
     font-family: serif;
 }
-#DantasticNav{
+#DantasticNav {
     display: flex;
     justify-content: flex-end;
 }
-
-#DantasticNav p{
+#DantasticNav p {
     padding: 0 20px;
     margin: 0;
     font-size: 2em;
 }
-
-#Dantastic{
+#Dantastic {
     align-items: center;
     display: flex;
 }
@@ -41,55 +40,73 @@ and open the template in the editor.
     background-position-y: 50%;
     background-repeat: no-repeat;
     padding-top: 20%;
-    min-height:800px;
-  }
-#jumbo{
-  margin-bottom:0px;
+    min-height: 800px;
 }
-.projectContainer{
-  background: url(../resources/code.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.5;
-  padding-bottom: 20%;
-  min-height:800px;
-  max-width: 100%;
-  font-size: 3em;
-  text-align: center;
-  color: #FFFFFF;
+#jumbo {
+    margin-bottom: 0px;
 }
-
-#fullWidth{
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+#fullWidth {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-footer .col-sm-8{
+footer .col-sm-8 {
     display: flex;
     justify-content: flex-end;
 }
-
-footer ul{
+footer ul {
     list-style: none;
 }
-
-.btn.btn-primary{
+.btn.btn-primary {
     margin: 20px;
     padding: 5px;
     font-size: 2em;
 }
-
 .btn {
-  font-size: 2em;
+    font-size: 2em;
 }
-
 .active {
-    background-color:#556677;
+    background-color: #556677;
 }
-#CanIPlay{
-  background: url(../resources/League.png) no-repeat center;
-  background-size: cover;
+.projectContainer {
+    padding-bottom: 20%;
+    min-height: 800px;
+    max-width: 100%;
+    font-size: 3em;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 1;
+    height: 800px;
+}
+.projectContainer:before {
+    background: url(../resources/code.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.3;
+    height: 800px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.projectContainer .projectBlock {
+    display: inline-block;
+    z-index: 1;
+    width: auto;
+    height: 800px;
+    margin: 20px;
+    opacity: 1;
+}
+#CanIPlay {
+    background: url(../resources/League.png) no-repeat center;
+    background-size: contain;
+}
+#JavaBeats {
+    background: url(../resources/java.png) no-repeat center;
+    background-size: 200px;
 }
