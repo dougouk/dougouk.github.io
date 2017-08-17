@@ -18,17 +18,20 @@ class Header extends React.Component {
 
 const headerContainer = {
     backgroundColor: '#42A5F5',
-    width: '100%'
+    margin: '0',
+    padding: '0'
 };
 
 const titleStyle = {
     textAlign: 'center',
-    fontSize: '4em'
+    fontSize: '4em',
+    margin: 0
 };
 
 const descriptionStyle = {
     textAlign: 'center',
-    fontSize: '2em'
+    fontSize: '2em',
+    margin: 0
 };
 
 export default Header;

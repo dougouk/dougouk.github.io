@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-class Header extends React.Component {
+class ContactBar extends React.Component {
   render () {
       let github = {
           name: 'Github',
@@ -34,12 +34,14 @@ class Header extends React.Component {
 
 
 const container = {
-    backgroundColor: '#42A5F5'
+    backgroundColor: '#E3F2FD',
+    height: '4em'
 };
 
 const buttonStyle = {
+    justifyContent: 'center',
     width: '4em',
-    height: '2em'
+    height: '3em'
 };
 
 const descriptionStyle = {
@@ -47,4 +49,4 @@ const descriptionStyle = {
     fontSize: '2em'
 };
 
-export default Header;
+export default ContactBar;
