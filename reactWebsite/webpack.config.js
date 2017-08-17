@@ -12,15 +12,22 @@ var config = {
     },
   module : {
     loaders : [
-      {
-        test : /\.jsx?/,
-        include : APP_DIR,
-        loader : 'babel-loader',
-        query:
-            {
-                presets:['es2015','react']
-            }
-      }
+        // Transform all ES6 to ES5
+        {
+            test : /\.jsx?/,
+            include : APP_DIR,
+            loader : 'babel-loader',
+            query:
+                {
+                    presets:['es2015','react']
+                }
+        },
+
+        // Load images
+        {
+            test: /\.(png|svg|jpg|gif)$/,
+            loader: 'url-loader?limit=100'
+        }
     ]
   }
 };
