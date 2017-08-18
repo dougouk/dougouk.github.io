@@ -16,10 +16,10 @@ class ProjectComponent extends React.Component {
                             this.getGooglePlayLink(this.props.project.playStore, 'PlayStore')
                             : null;
         let devPost = this.props.project.devPost ?
-                            this.getLink(this.props.project.devPost, 'DevPost')
+                            this.getDevpostLink(this.props.project.devPost, 'DevPost')
                             : null;
         let website = this.props.project.website ?
-                            this.getLink(this.props.project.website, 'Website')
+                            this.getWebsiteLink(this.props.project.website, 'Website')
                             : null;
     return (
         <div class='header' style={container}>
@@ -54,6 +54,20 @@ class ProjectComponent extends React.Component {
         return (
             <a href={link} style={buttonStyle} target="_blank">
                 <img src="http://www.android.com/images/brand/android_app_on_play_large.png"/>
+            </a>);
+    }
+
+    getDevpostLink(link, name){
+        return (
+            <a href={link} style={buttonStyle} target="_blank">
+                <img src={require('../images/devpost.png')}/>
+            </a>);
+    }
+
+    getWebsiteLink(link, name){
+        return (
+            <a href={link} style={buttonStyle} target="_blank">
+                <img src={require('../images/website.png')}/>
             </a>);
     }
 

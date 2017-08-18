@@ -12,11 +12,8 @@ const projects = [
         date: '2017',
         type: 'React-Native Application',
         source: require('./images/portfolio/uwclosest.png'),
-        description: 'UWClosest is a mobile application that helps users find washrooms,' +
-        'vending machines, and empty classrooms on the University of Waterloo campus.' +
-        'Existing webpages to find these amenities are slow and difficult to use, so' +
-        'this project is motivated by a desire to create an application to help people' +
-        'find amenities in campus easily and reliably, with the push of one button.',
+        description: 'Mobile application that helps users find study rooms,' +
+        'vending machines, and parking spots on the University of Waterloo campus.',
         playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest'
     },
     {
@@ -30,7 +27,7 @@ const projects = [
     {
         title: 'RecMob',
         date: '2017',
-        type: 'Freelancing - Android Application',
+        type: 'Android Application (Freelancing)',
         source: require('./images/portfolio/recordMob.jpg'),
         description: 'Social video community where REAL recognizes REAL',
         website: 'http://recmob.com/',
@@ -38,8 +35,8 @@ const projects = [
     },
     {
         title: 'DeafBand',
-        date: '2017 - In progress',
-        type: 'Fourth Year Engineering Design Project - Arduino, Android',
+        date: '2017 (In progress)',
+        type: 'Arduino, Android - Fourth Year Engineering Design Project',
         source: require('./images/portfolio/deafband.png'),
         description: 'DeafBand is a headband-like device that can recognizes and '+
         'pinpoints the direction of certain sounds such as car horns, screaming, etc',
@@ -98,6 +95,7 @@ class App extends React.Component {
                 <ProjectComponent project={projects[6]}/>
                 <ProjectComponent project={projects[7]}/>
             </div>
+            <div style={danguinStyle}/>
             <Footer/>
         </div>
     );
@@ -116,4 +114,14 @@ const projectContainer = {
     backgroundColor: '#E3F2FD',
     paddingBottom: '1em'
 }
+
+const danguinStyle = {
+    background: 'url("./reactWebsite/src/client/app/images/danguin.jpg") no-repeat center center scroll',
+    backgroundSize: 'cover',
+    margin: '0',
+    padding: '0',
+    width: '100%',
+    height: '30em',
+};
+
 render(<App/>, document.getElementById('app'));
