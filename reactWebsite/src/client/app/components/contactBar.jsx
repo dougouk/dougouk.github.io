@@ -50,7 +50,7 @@ class ContactBar extends React.Component {
 }
 
 const container = {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: '#FFF',
     width: '100%',
     height: '5em',
     display: 'flex',

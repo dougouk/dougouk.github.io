@@ -27,14 +27,16 @@ class ProjectComponent extends React.Component {
                 <div style={imageContainer}>
                     <img src={image} style={imageStyle}/>
                 </div>
-                <h2 style={titleStyle}>{title}</h2>
-                <p style={noteStyle}>{date}  {type}</p>
-                <p style={descriptionStyle}>{description}</p>
-                <div style={linkContainer}>
-                    {githubLink}
-                    {playStore}
-                    {devPost}
-                    {website}
+                <div style={textContainer}>
+                    <h2 style={titleStyle}>{title}</h2>
+                    <p style={noteStyle}>{date}  {type}</p>
+                    <p style={descriptionStyle}>{description}</p>
+                    <div style={linkContainer}>
+                        {githubLink}
+                        {playStore}
+                        {devPost}
+                        {website}
+                    </div>
                 </div>
             </Card>
         </div>
@@ -69,6 +71,10 @@ const imageContainer = {
     width: '100%',
     backgroundColor: '#F5F5F5'
 }
+
+const textContainer = {
+    padding: '2em'
+}
 const imageStyle = {
     maxHeight: '10em',
 }
@@ -86,7 +92,8 @@ const noteStyle = {
 
 const descriptionStyle = {
     textAlign: 'left',
-    fontFamily: '"Trebuchet MS", Helvetica, sans-serif'
+    fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
+    fontSize: '1.2em'
 };
 
 const buttonStyle = {

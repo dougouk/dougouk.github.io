@@ -4,6 +4,7 @@ import AwesomeComponent from './components/AwesomeComponent.jsx';
 import Header from './components/header.jsx';
 import ContactBar from './components/contactBar.jsx';
 import ProjectComponent from './components/ProjectComponent.jsx';
+import Footer from './components/footer.jsx';
 
 const projects = [
     {
@@ -97,13 +98,13 @@ class App extends React.Component {
                 <ProjectComponent project={projects[6]}/>
                 <ProjectComponent project={projects[7]}/>
             </div>
+            <Footer/>
         </div>
     );
   }
 }
 
 const container = {
-    backgroundColor: '#E0E0E0',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
@@ -112,6 +113,7 @@ const container = {
 const projectContainer = {
     display: 'flex',
     flexWrap: 'wrap',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#E3F2FD',
+    paddingBottom: '1em'
 }
 render(<App/>, document.getElementById('app'));
