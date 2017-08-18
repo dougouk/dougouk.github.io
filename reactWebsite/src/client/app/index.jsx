@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+import Resize from 'react-resize';
 import AwesomeComponent from './components/AwesomeComponent.jsx';
 import Header from './components/header.jsx';
 import ContactBar from './components/contactBar.jsx';
@@ -83,20 +84,22 @@ class App extends React.Component {
   render () {
     return (
         <div style={container}>
-            <Header/>
-            <ContactBar/>
-            <div style={projectContainer}>
-                <ProjectComponent project={projects[0]}/>
-                <ProjectComponent project={projects[1]}/>
-                <ProjectComponent project={projects[2]}/>
-                <ProjectComponent project={projects[3]}/>
-                <ProjectComponent project={projects[4]}/>
-                <ProjectComponent project={projects[5]}/>
-                <ProjectComponent project={projects[6]}/>
-                <ProjectComponent project={projects[7]}/>
-            </div>
-            <div style={danguinStyle}/>
-            <Footer/>
+            <Resize>
+                <Header/>
+                <ContactBar/>
+                <div style={projectContainer}>
+                    <ProjectComponent project={projects[0]}/>
+                    <ProjectComponent project={projects[1]}/>
+                    <ProjectComponent project={projects[2]}/>
+                    <ProjectComponent project={projects[3]}/>
+                    <ProjectComponent project={projects[4]}/>
+                    <ProjectComponent project={projects[5]}/>
+                    <ProjectComponent project={projects[6]}/>
+                    <ProjectComponent project={projects[7]}/>
+                </div>
+                <div style={danguinStyle}/>
+                <Footer/>
+            </Resize>
         </div>
     );
   }
