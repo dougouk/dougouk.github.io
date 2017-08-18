@@ -10,16 +10,21 @@ class Header extends React.Component {
         <div class='header' style={headerContainer}>
             <h1 style={titleStyle}>{name}</h1>
             <h3 style={descriptionStyle}>{description}</h3>
-
         </div>
     );
   }
 }
 
 const headerContainer = {
-    backgroundColor: '#42A5F5',
+    background: 'url("./app/images/bg.jpg") no-repeat center center scroll',
+    backgroundSize: 'cover',
     margin: '0',
-    padding: '0'
+    padding: '0',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
 };
 
 const titleStyle = {
@@ -31,7 +36,8 @@ const titleStyle = {
 const descriptionStyle = {
     textAlign: 'center',
     fontSize: '2em',
-    margin: 0
+    fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
+    marginTop: '1em'
 };
 
 export default Header;

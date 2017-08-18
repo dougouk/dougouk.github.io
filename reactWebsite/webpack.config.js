@@ -26,7 +26,7 @@ var config = {
         // Load images
         {
             test: /\.(png|svg|jpg|gif)$/,
-            loader: 'url-loader?limit=100'
+            loader: 'url-loader?limit=100000'
         }
     ]
   }
