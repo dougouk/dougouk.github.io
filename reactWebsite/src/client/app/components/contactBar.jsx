@@ -6,15 +6,23 @@ class ContactBar extends React.Component {
       let contactLinks = [
           {
               name: 'Github',
-              image: require('../images/github.png')
+              image: require('../images/github.png'),
+              link: 'https://github.com/dougouk'
           },
           {
               name: 'LinkedIn',
-              image: require('../images/linkedin.png')
+              image: require('../images/linkedin.png'),
+              link: 'https://www.linkedin.com/in/dougouk/'
           },
           {
               name: 'Email',
-              image: require('../images/email.png')
+              image: require('../images/email.png'),
+              link: 'mailto:dououk@gmail.com',
+          },
+          {
+              name: 'Devpost',
+              image: require('../images/devpost.png'),
+              link: 'https://devpost.com/dougouk?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav'
           }
       ];
 
@@ -23,13 +31,14 @@ class ContactBar extends React.Component {
             {this.getButton(contactLinks[0])}
             {this.getButton(contactLinks[1])}
             {this.getButton(contactLinks[2])}
+            {this.getButton(contactLinks[3])}
         </div>
     );
   }
 
   getButton(props) {
       return (
-          <a href='#' onClick={this.handleClick} style={buttonStyle}>
+          <a href={props.link} style={buttonStyle} target="_blank">
               <img src={props.image}/>
           </a>
       )
