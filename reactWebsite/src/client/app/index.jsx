@@ -13,7 +13,7 @@ const projects = [
         date: '2017',
         type: 'React-Native Application',
         source: require('./images/portfolio/uwclosest.png'),
-        description: 'Mobile application that helps users find study rooms,' +
+        description: 'Mobile application that helps users find open classrooms,' +
         ' vending machines, and parking spots on the University of Waterloo campus.',
         playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest',
         tags: ['React-Native', 'Node.js', 'Heroku', 'Postgre SQL']
