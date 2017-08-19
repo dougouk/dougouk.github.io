@@ -4,7 +4,7 @@ import Resize from 'react-resize';
 import AwesomeComponent from './components/AwesomeComponent.jsx';
 import Header from './components/header.jsx';
 import ContactBar from './components/contactBar.jsx';
-import ProjectComponent from './components/ProjectComponent.jsx';
+import ProjectComponent from './components/project/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
 
 const projects = [
@@ -14,8 +14,11 @@ const projects = [
         type: 'React-Native Application',
         source: require('./images/portfolio/uwclosest.png'),
         description: 'Mobile application that helps users find study rooms,' +
-        'vending machines, and parking spots on the University of Waterloo campus.',
-        playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest'
+        ' vending machines, and parking spots on the University of Waterloo campus.' +
+        ' Pulls data from the ' + 'UW Open Data API' + ', using heroku, node.js, postgre db' +
+        ' and react native',
+        playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest',
+        tags: ['React-Native', 'Node.js', 'Heroku', 'Postgre SQL']
     },
     {
         title: 'Simple Voice Recorder',
@@ -23,7 +26,8 @@ const projects = [
         type: 'Android Application',
         source: require('./images/portfolio/enregistreur.png'),
         description: 'Simple, quick, high-quality, ad-free audio recording app',
-        playStore: 'https://play.google.com/store/apps/details?id=com.dan190.enregistreur'
+        playStore: 'https://play.google.com/store/apps/details?id=com.dan190.enregistreur',
+        tags: ['Android', 'Java']
     },
     {
         title: 'RecMob',
@@ -32,7 +36,8 @@ const projects = [
         source: require('./images/portfolio/recordMob.jpg'),
         description: 'Social video community where REAL recognizes REAL',
         website: 'http://recmob.com/',
-        playStore: 'https://play.google.com/store/apps/details?id=com.recordmob'
+        playStore: 'https://play.google.com/store/apps/details?id=com.recordmob',
+        tags: ['Android', 'Java']
     },
     {
         title: 'DeafBand',
@@ -41,7 +46,8 @@ const projects = [
         source: require('./images/portfolio/deafband.png'),
         description: 'DeafBand is a headband-like device that can recognizes and '+
         'pinpoints the direction of certain sounds such as car horns, screaming, etc',
-        playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband'
+        playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband',
+        tags: ['Arduino', 'Android', 'Java', 'C']
     },
     {
         title: 'Savescription',
@@ -50,7 +56,8 @@ const projects = [
         source: require('./images/portfolio/savescription.png'),
         description: 'WebApp to send out automated prescription reminders and '+
             'other relevant information for patients.',
-        devPost: 'https://devpost.com/software/safescription'
+        devPost: 'https://devpost.com/software/safescription',
+        tags: ['Bootstrap', 'HTML', 'CSS', 'Firebase API', 'Twilio API']
     },
     {
         title: 'WalkingBuddy',
@@ -59,7 +66,8 @@ const projects = [
         source: require('./images/portfolio/walkingBuddy.png'),
         description: 'Android App that matches people to walk home (or anywhere)'+
             ' together, with safety in mind.',
-        devPost: 'https://devpost.com/software/walking-buddy'
+        devPost: 'https://devpost.com/software/walking-buddy',
+        tags: ['Android', 'Google Places API', 'Google Maps API', 'Firebase API']
     },
     {
         title: 'Foody',
@@ -68,7 +76,8 @@ const projects = [
         source: require('./images/portfolio/foody.png'),
         description: 'Voice-controlled WebApp that suggests restaurant dishes ' +
             'based on user feedback. Uses NLP.',
-        devPost: 'https://devpost.com/software/foody-lfbvrn'
+        devPost: 'https://devpost.com/software/foody-lfbvrn',
+        tags: ['Nuance Nina Web API', 'Clarify API', 'YellowPages API', 'Python']
     },
     {
         title: 'ParkTheValley',
@@ -76,7 +85,8 @@ const projects = [
         type: 'Android Application',
         source: require('./images/portfolio/parker.png'),
         description: 'AirBnb & Uber for parking.',
-        devPost: 'https://devpost.com/software/parkthevalley'
+        devPost: 'https://devpost.com/software/parkthevalley',
+        tags: ['Android', 'Google Maps API', 'Google Places API', 'Firebase API']
     }
 ]
 
@@ -114,8 +124,11 @@ const container = {
 const projectContainer = {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     backgroundColor: '#E3F2FD',
-    paddingBottom: '1em'
+    paddingBottom: '1em',
+    marginLeft: '1em',
+    marginRight: '1em'
 }
 
 const danguinStyle = {

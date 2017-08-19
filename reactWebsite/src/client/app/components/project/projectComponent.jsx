@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Card from 'react-material-card';
+import ProjectTags from './projectTags.jsx';
 
 class ProjectComponent extends React.Component {
   render () {
@@ -21,6 +22,7 @@ class ProjectComponent extends React.Component {
         let website = this.props.project.website ?
                             this.getWebsiteLink(this.props.project.website, 'Website')
                             : null;
+        let tags = this.props.project.tags;
     return (
         <div class='header' style={container}>
             <Card overLevel={5} outLevel={1}>
@@ -37,6 +39,7 @@ class ProjectComponent extends React.Component {
                         {devPost}
                         {website}
                     </div>
+                    <ProjectTags tags={tags}/>
                 </div>
             </Card>
         </div>
@@ -60,21 +63,22 @@ class ProjectComponent extends React.Component {
     getDevpostLink(link, name){
         return (
             <a href={link} style={buttonStyle} target="_blank">
-                <img src={require('../images/devpost.png')}/>
+                <img src={require('../../images/devpost.png')}/>
             </a>);
     }
 
     getWebsiteLink(link, name){
         return (
             <a href={link} style={buttonStyle} target="_blank">
-                <img src={require('../images/website.png')}/>
+                <img src={require('../../images/website.png')}/>
             </a>);
     }
 
 }
 
 const container = {
-    margin: 'auto',
+    marginLeft: '1em',
+    marginRight: '1em',
     marginTop: '3em',
     width: '30em'
 };
