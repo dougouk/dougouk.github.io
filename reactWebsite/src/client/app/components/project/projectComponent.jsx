@@ -117,7 +117,7 @@ const descriptionStyle = {
 const buttonStyle = {
     textAlign: 'center',
     textDecoration: 'none',
-    marginLeft: '1em'
+    marginRight: '1em'
 };
 
 const linkStyle = {
