@@ -14,9 +14,7 @@ const projects = [
         type: 'React-Native Application',
         source: require('./images/portfolio/uwclosest.png'),
         description: 'Mobile application that helps users find study rooms,' +
-        ' vending machines, and parking spots on the University of Waterloo campus.' +
-        ' Pulls data from the ' + 'UW Open Data API' + ', using heroku, node.js, postgre db' +
-        ' and react native',
+        ' vending machines, and parking spots on the University of Waterloo campus.',
         playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest',
         tags: ['React-Native', 'Node.js', 'Heroku', 'Postgre SQL']
     },
@@ -44,8 +42,8 @@ const projects = [
         date: '2017 (In progress)',
         type: 'Arduino, Android - Fourth Year Engineering Design Project',
         source: require('./images/portfolio/deafband.png'),
-        description: 'DeafBand is a headband-like device that can recognizes and '+
-        'pinpoints the direction of certain sounds such as car horns, screaming, etc',
+        description: 'DeafBand is a headband-like device that can recognize and '+
+        'pinpoint the direction of certain sounds such as car horns, screaming, etc',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband',
         tags: ['Arduino', 'Android', 'Java', 'C']
     },
@@ -54,8 +52,8 @@ const projects = [
         date: '2017',
         type: 'WebApp - KWHacks2017 Top 5',
         source: require('./images/portfolio/savescription.png'),
-        description: 'WebApp to send out automated prescription reminders and '+
-            'other relevant information for patients.',
+        description: 'WebApp to send out automated prescription reminders through '+
+            'text and phone calls to a list of managed patients.',
         devPost: 'https://devpost.com/software/safescription',
         tags: ['Bootstrap', 'HTML', 'CSS', 'Firebase API', 'Twilio API']
     },
