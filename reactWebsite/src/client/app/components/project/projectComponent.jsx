@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Card from 'react-material-card';
 import ProjectTags from './projectTags.jsx';
+import Dext from '../reuse/Dext.jsx';
 
 class ProjectComponent extends React.Component {
   render () {
@@ -23,6 +24,18 @@ class ProjectComponent extends React.Component {
                             this.getWebsiteLink(this.props.project.website, 'Website')
                             : null;
         let tags = this.props.project.tags;
+
+        var awardsToDisplay;
+        if(this.props.project.awards){
+            awardsToDisplay = this.props.project.awards.map((award, index) =>
+                                    <p style={awardStyle}>
+                                        <Dext>
+                                            {award}
+                                        </Dext>
+                                    </p>
+                                );
+        };
+
     return (
         <div class='header' style={container}>
             <Card overLevel={5} outLevel={1}>
@@ -31,7 +44,11 @@ class ProjectComponent extends React.Component {
                 </div>
                 <div style={textContainer}>
                     <h2 style={titleStyle}>{title}</h2>
-                    <p style={noteStyle}>{date}  {type}</p>
+                    <div style={notesContainer}>
+                        <p style={dateStyle}>{date}</p>
+                        <p style={noteStyle}>{type}</p>
+                        {awardsToDisplay}
+                    </div>
                     <p style={descriptionStyle}>{description}</p>
                     <div style={linkContainer}>
                         {githubLink}
@@ -93,6 +110,11 @@ const imageContainer = {
 const textContainer = {
     padding: '2em'
 }
+
+const notesContainer = {
+    display: 'flex',
+    flexDirection: 'row'
+}
 const imageStyle = {
     maxHeight: '10em',
 }
@@ -103,15 +125,36 @@ const titleStyle = {
     fontFamily: '"Trebuchet MS", Helvetica, sans-serif'
 };
 
+const dateStyle = {
+    textAlign: 'left',
+    fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
+    marginRight: '0.4em',
+    fontStyle: 'italic',
+    display: 'flex',
+    alignItems: 'center'
+}
+
 const noteStyle = {
     textAlign: 'left',
-    fontFamily: '"Trebuchet MS", Helvetica, sans-serif'
+    fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
+    marginRight: '0.2em',
+    display: 'flex',
+    alignItems: 'center'
 };
 
 const descriptionStyle = {
     textAlign: 'left',
     fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
     fontSize: '1.2em'
+};
+
+const awardStyle = {
+    fontWeight: 'bold',
+    backgroundColor: '#FFC107',
+    color: '#42A5F5',
+    padding: '0.5em',
+    borderRadius: '1em',
+    marginRight: '0.2em'
 };
 
 const buttonStyle = {

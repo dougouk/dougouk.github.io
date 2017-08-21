@@ -40,17 +40,19 @@ const projects = [
     {
         title: 'DeafBand',
         date: '2017 (In progress)',
-        type: 'Arduino, Android - Fourth Year Engineering Design Project',
+        type: 'Arduino & Android',
         source: require('./images/portfolio/deafband.png'),
         description: 'DeafBand is a headband-like device that can recognize and '+
-        'pinpoint the direction of certain sounds such as car horns, screaming, etc',
+        'pinpoint the direction of certain sounds such as car horns, screaming, etc. ' +
+        'Being developed as the Fourth Year Design Project at the University of Waterloo.',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband',
         tags: ['Arduino', 'Android', 'Java', 'C']
     },
     {
         title: 'Savescription',
         date: '2017',
-        type: 'WebApp - KWHacks2017 Top 5',
+        type: 'WebApp',
+        awards: ['KWHacks2017 Top 5'],
         source: require('./images/portfolio/savescription.png'),
         description: 'WebApp to send out automated prescription reminders through '+
             'text and phone calls to a list of managed patients.',
@@ -60,7 +62,8 @@ const projects = [
     {
         title: 'WalkingBuddy',
         date: '2017',
-        type: 'Android Application - Hackatown2017 Top 6 | Founders Institute Award',
+        type: 'Android Application',
+        awards: ['Hackatown2017 Top 6', 'Founders Institute Award'],
         source: require('./images/portfolio/walkingBuddy.png'),
         description: 'Android App that matches people to walk home (or anywhere)'+
             ' together, with safety in mind.',
@@ -96,14 +99,9 @@ class App extends React.Component {
                 <Header/>
                 <ContactBar/>
                 <div style={projectContainer}>
-                    <ProjectComponent project={projects[0]}/>
-                    <ProjectComponent project={projects[1]}/>
-                    <ProjectComponent project={projects[2]}/>
-                    <ProjectComponent project={projects[3]}/>
-                    <ProjectComponent project={projects[4]}/>
-                    <ProjectComponent project={projects[5]}/>
-                    <ProjectComponent project={projects[6]}/>
-                    <ProjectComponent project={projects[7]}/>
+                    {projects.map((project, index) =>
+                        <ProjectComponent project={project}/>
+                    )};
                 </div>
                 <div style={danguinStyle}/>
                 <Footer/>
