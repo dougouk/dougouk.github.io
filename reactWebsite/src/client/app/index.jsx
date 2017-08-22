@@ -9,6 +9,18 @@ import Footer from './components/footer.jsx';
 
 const projects = [
     {
+        title: 'Danpool',
+        date: '2017',
+        type: 'Android Application',
+        source: require('./images/portfolio/danpool.png'),
+        description: 'Mobile application that greatly simplifies the process ' +
+            'of finding your next carpool between Ontario and Quebec cities. ' +
+            'Displays offers ' +
+            'by time of departure, with origins, destinations, and price all ' +
+            'readily shown to the user in a nice simple format',
+        tags: ['RegEx', 'Android', 'Facebook SDK', 'Google AdMob', 'SQLite']
+    },
+    {
         title: 'UWClosest',
         date: '2017',
         type: 'React-Native Application',
@@ -25,7 +37,7 @@ const projects = [
         source: require('./images/portfolio/enregistreur.png'),
         description: 'Simple, quick, high-quality, ad-free audio recording app',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.enregistreur',
-        tags: ['Android', 'Java']
+        tags: ['Android', 'Java', 'Android Media Framework', 'Open-source Media Frameworks']
     },
     {
         title: 'RecMob',
@@ -46,7 +58,7 @@ const projects = [
         'pinpoint the direction of certain sounds such as car horns, screaming, etc. ' +
         'Being developed as the Fourth Year Design Project at the University of Waterloo.',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband',
-        tags: ['Arduino', 'Android', 'Java', 'C']
+        tags: ['Arduino', 'Android', 'Java', 'C', 'Bluetooth Stack']
     },
     {
         title: 'Savescription',
