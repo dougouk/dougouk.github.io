@@ -17,8 +17,8 @@ const projects = [
             'of finding your next carpool between Ontario and Quebec cities. ' +
             'Displays offers ' +
             'by time of departure, with origins, destinations, and price all ' +
-            'readily shown to the user in a nice simple format. Google Play ' +
-            'link coming soon!',
+            'readily shown to the user in a nice simple format.',
+        playStore: 'https://play.google.com/store/apps/details?id=com.dan190.danpool',
         tags: ['RegEx', 'Android', 'Facebook SDK', 'Google AdMob', 'SQLite']
     },
     {
