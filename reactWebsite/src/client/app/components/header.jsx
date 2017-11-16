@@ -4,7 +4,7 @@ import Card from 'react-material-card';
 
 class Header extends React.Component {
   render () {
-      let name = '(Dan) Dongoug Kim';
+      let name = 'Dan Kim';
       let description = 'Android developer, open for part-time projects';
     return (
         <div class='header' style={headerContainer}>
@@ -29,14 +29,15 @@ const headerContainer = {
 
 const titleStyle = {
     textAlign: 'center',
-    fontSize: '4em',
+    fontSize: '5em',
+    fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
     margin: 0
 };
 
 const descriptionStyle = {
     textAlign: 'center',
-    fontSize: '2em',
-    fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
+    fontSize: '3em',
+    fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
     marginTop: '1em'
 };
 
