@@ -12,7 +12,7 @@ class Dext extends React.Component {
 }
 
 const textStyle = {
-    fontFamily: '"Trebuchet MS", Helvetica, sans-serif'
+    fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
 }
 
 export default Dext;
