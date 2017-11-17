@@ -9,7 +9,7 @@ class Header extends React.Component {
       let description = 'Android developer, open for part-time projects';
     return (
         <div style={mainContainer}>
-            <NavBarComponent style={navBarStyle}/>
+            {/* <NavBarComponent style={navBarStyle}/> */}
             <div style={headerContainer}>
                 <h1 style={titleStyle}>{name}</h1>
                 <h3 style={descriptionStyle}>{description}</h3>
@@ -20,9 +20,9 @@ class Header extends React.Component {
 }
 
 const mainContainer = {
-    // background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
-    // backgroundSize: 'cover',
-    backgroundColor: '#42A5F5',
+    background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
+    backgroundSize: 'cover',
+    // backgroundColor: '#42A5F5',
     margin: '0',
     padding: '0',
     width: '100%',
@@ -30,6 +30,7 @@ const mainContainer = {
 };
 
 const headerContainer = {
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center'
