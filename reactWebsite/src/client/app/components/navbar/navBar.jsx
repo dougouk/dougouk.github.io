@@ -7,23 +7,23 @@ class NavBarComponent extends React.Component {
       let contactLinks = [
           {
               name: 'Home',
-              image: require('../../images/github.png'),
-              link: '#'
+              image: require('../../images/github_white.png'),
+              link: '#home'
           },
           {
               name: 'About',
-              image: require('../../images/linkedin.png'),
+              image: require('../../images/linkedin_white.png'),
               link: '#'
           },
           {
               name: 'Projects',
               image: require('../../images/email.png'),
-              link: '#',
+              link: '#projects',
           },
           {
               name: 'Contact',
               image: require('../../images/devpost.png'),
-              link: '#'
+              link: '#footer'
           }
       ];
 
@@ -38,8 +38,11 @@ class NavBarComponent extends React.Component {
 
   getButton(props) {
       return (
-          <a href={props.link} style={buttonStyle} target="_blank">
-              <Dext>
+          <a href={props.link}
+              style={buttonStyle}
+              onMouseEnter={this.toggleHover}
+              onMouseLeave={this.toggleHover}>
+              <Dext style={linkStyle}>
                   {props.name}
               </Dext>
           </a>
@@ -57,6 +60,7 @@ const container = {
     height: '5em',
     display: 'flex',
     justifyContent: 'flex-end',
+    position: 'fixed'
 };
 
 const buttonStyle = {
@@ -65,7 +69,7 @@ const buttonStyle = {
     height: '90%',
     color: '#fff',
     textDecoration: 'none',
-    fontSize: '1em',
+    fontSize: '1.5em',
     marginRight: '10px'
 };
 

@@ -111,7 +111,7 @@ class App extends React.Component {
             <Resize>
                 <Header/>
                 <ContactBar/>
-                <div style={projectContainer}>
+                <div id='projects' style={projectContainer}>
                     {projects.map((project, index) =>
                         <ProjectComponent project={project}/>
                     )};
