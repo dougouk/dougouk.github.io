@@ -6,7 +6,7 @@ import NavBarComponent from './navbar/navBar.jsx';
 class Header extends React.Component {
   render () {
       let name = 'Dan Kim';
-      let description = 'Android developer';
+      let description = 'Learner, Creator, Developer';
     return (
         <div id="home" style={mainContainer}>
             <NavBarComponent style={navBarStyle}/>

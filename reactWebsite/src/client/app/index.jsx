@@ -109,6 +109,9 @@ class App extends React.Component {
     return (
         <div style={container}>
             <Resize>
+                <main>
+                    {this.props.children}
+                </main>
                 <Header/>
                 <ContactBar/>
                 <div id='projects' style={projectContainer}>
@@ -136,8 +139,6 @@ const projectContainer = {
     justifyContent: 'center',
     backgroundColor: '#E3F2FD',
     paddingBottom: '1em',
-    marginLeft: '1em',
-    marginRight: '1em'
 }
 
 const danguinStyle = {
