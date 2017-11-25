@@ -4,46 +4,83 @@ import Dext from '../reuse/Dext.jsx';
 import { Link } from 'react-router-dom';
 
 class NavBarComponent extends React.Component {
-  render () {
-      let contactLinks = [
-          {
-              name: 'Home',
-              image: require('../../images/github_white.png'),
-              link: '#home',
-              routerLink: '/'
-          },
+    constructor(props){
+      super(props);
+      this.state= {
+          isHide: false
+      };
+      this.hideBar = this.hideBar.bind(this)
+    }
+
+    hideBar(){
+        console.log('hide bar')
+        console.log(this.state.isHide)
+        console.log(window.scrollY)
+        // console.log('this state' + this.state)
+        let hidden = this.state.isHide
+        window.scrollY > this.prev ?
+        !hidden && this.setState({isHide:true})
+        :
+        hidden && this.setState({isHide:false})
+
+        this.prev = window.scrollY;
+    }
+
+    componentDidMount(){
+        window.addEventListener('scroll',this.hideBar);
+    }
+
+    componentWillUnmount(){
+         window.removeEventListener('scroll',this.hideBar);
+    }
+
+    render () {
+        let contactLinks = [
+            {
+                name: 'Home',
+                image: require('../../images/github_white.png'),
+                link: '#home',
+                routerLink: '/'
+            },
           // {
           //     name: 'About',
           //     image: require('../../images/linkedin_white.png'),
           //     link: '#'
           // },
-          {
-              name: 'Projects',
-              image: require('../../images/email.png'),
-              link: '#projects',
-              routerLink: '/projects'
-          },
-          {
-              name: 'Contact',
-              image: require('../../images/devpost.png'),
-              link: '#footer',
-              routerLink: '/'
-          }
-      ];
+            {
+                name: 'Projects',
+                image: require('../../images/email.png'),
+                link: '#projects',
+                routerLink: '/projects'
+            },
+            {
+                name: 'Contact',
+                image: require('../../images/devpost.png'),
+                link: '#footer',
+                routerLink: '/'
+            }
+        ];
+        if (!this.state.isHide) {
+            return (
 
-    return (
-        <div style={container}>
-            {contactLinks.map((contact, index) =>
-                this.getButton(contact)
-            )};
-        </div>
-    );
-  }
+                    <div style={container}>
+                        {contactLinks.map((contact, index) =>
+                            this.getButton(contact, index)
+                        )};
+                    </div>
+            );
+        } else {
+            return (<div></div>);
+        }
 
-  getButton(props) {
+      }
+
+  getButton(props, index) {
       console.log(props.routerLink);
       return (
-            <Link to={props.routerLink}>
+            <Link to={props.routerLink}
+                style={buttonStyle}
+                key={index}>
                 {/* <a href={props.link}
                     style={buttonStyle}
                     key={props.name}

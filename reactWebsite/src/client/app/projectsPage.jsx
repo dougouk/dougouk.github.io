@@ -123,4 +123,27 @@ class ProjectsPage extends React.Component {
     }
 }
 
+const container = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+}
+
+const projectContainer = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    backgroundColor: '#E3F2FD',
+    paddingBottom: '1em',
+}
+
+const danguinStyle = {
+    background: 'url("./reactWebsite/src/client/app/images/danguin.jpg") no-repeat center center scroll',
+    backgroundSize: 'cover',
+    margin: '0',
+    padding: '0',
+    width: '100%',
+    height: '30em',
+};
+
 export default ProjectsPage;

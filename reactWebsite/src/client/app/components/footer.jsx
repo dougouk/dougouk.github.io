@@ -32,7 +32,7 @@ class Footer extends React.Component {
             </a>
             <p>
                 {contactLinks.map((contact, index) =>
-                    <a href={contact.link} style={contactLinkStyle} target="_blank">
+                    <a key={index} href={contact.link} style={contactLinkStyle} target="_blank">
                         <img src={contact.image} width='32'/>
                     </a>
                 )}
