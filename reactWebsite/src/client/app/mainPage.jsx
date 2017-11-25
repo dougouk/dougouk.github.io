@@ -109,9 +109,6 @@ class MainPage extends React.Component {
     return (
         <div style={container}>
             <Resize>
-                <main>
-                    {this.props.children}
-                </main>
                 <Header/>
                 {/* <ContactBar/> */}
                 <div id='projects' style={projectContainer}>
