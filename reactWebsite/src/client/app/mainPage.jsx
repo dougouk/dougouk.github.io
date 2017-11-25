@@ -20,11 +20,12 @@ class MainPage extends React.Component {
             <Resize>
                 <Header/>
                 <ShowCaseComponent
-                    color={amberColor}
+                    color={deepOrangeColor}
                     title='title'
                     description='description'
                     buttonText='buttonText'
                     link='/projects'
+                    imageSrc= {require('./images/coding.jpg')}
                 />
 
                 <div style={danguinStyle}/>

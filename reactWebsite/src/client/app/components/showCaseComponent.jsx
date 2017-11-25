@@ -9,6 +9,8 @@ class ShowCaseComponent extends React.Component {
       let description = this.props.description;
       let buttonText = this.props.buttonText;
       let link = this.props.link;
+      let imageSrc = this.props.imageSrc;
+      console.log(imageSrc);
       const mainContainer = {
           margin: '0',
           padding: '0',
@@ -35,7 +37,7 @@ class ShowCaseComponent extends React.Component {
                 </a>
             </div>
             <div style={imageDiv}>
-
+                <img src={imageSrc} style={imageStyle}/>
             </div>
         </div>
     );
@@ -52,14 +54,20 @@ const textDiv = {
 
 const imageDiv = {
     flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
 }
 const titleStyle = {
-    fontSize: '3rem',
+    fontSize: '4em',
+    fontWeight: 'bold',
     color: '#fff'
 }
 const descriptionStyle = {
-    fontSize: '1.3rem',
-    color: '#fff'
+    fontSize: '1.4em',
+    color: '#fff',
+    marginTop: '4em',
+    marginBottom: '3em'
 }
 const buttonStyle = {
     display: 'flex',
@@ -69,7 +77,15 @@ const buttonStyle = {
     textDecoration: 'none',
     color: '#fff',
     borderStyle: 'solid',
-    borderColor: '#fff'
+    borderColor: '#fff',
+    paddingTop: '1em',
+    paddingBottom: '1em',
+    paddingLeft: '2em',
+    paddingRight: '2em'
+}
+const imageStyle = {
+    width: '100%',
+    height: '90%'
 }
 
 export default ShowCaseComponent;
