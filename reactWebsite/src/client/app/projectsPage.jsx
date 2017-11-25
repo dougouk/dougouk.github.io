@@ -1,9 +1,7 @@
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import Resize from 'react-resize';
-import AwesomeComponent from './components/AwesomeComponent.jsx';
 import Header from './components/header.jsx';
-import ContactBar from './components/contactBar.jsx';
 import ProjectComponent from './components/project/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
 
@@ -104,48 +102,25 @@ const projects = [
     }
 ]
 
-class MainPage extends React.Component {
-  render () {
-    return (
-        <div style={container}>
-            <Resize>
-                <Header/>
-                {/* <ContactBar/> */}
-                {/* <div id='projects' style={projectContainer}>
-                    {projects.map((project, index) =>
-                        <ProjectComponent project={project}/>
-                    )};
-                </div> */}
-                <div style={danguinStyle}/>
-                <Footer/>
-            </Resize>
-        </div>
-    );
-  }
+
+class ProjectsPage extends React.Component {
+    render () {
+        return (
+            <div style={container}>
+                <Resize>
+                    {/* <Header/> */}
+                    {/* <ContactBar/> */}
+                    <div id='projects' style={projectContainer}>
+                        {projects.map((project, index) =>
+                            <ProjectComponent project={project}/>
+                        )};
+                    </div>
+                    <div style={danguinStyle}/>
+                    <Footer/>
+                </Resize>
+            </div>
+        );
+    }
 }
 
-const container = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-}
-
-const projectContainer = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    backgroundColor: '#E3F2FD',
-    paddingBottom: '1em',
-}
-
-const danguinStyle = {
-    background: 'url("./reactWebsite/src/client/app/images/danguin.jpg") no-repeat center center scroll',
-    backgroundSize: 'cover',
-    margin: '0',
-    padding: '0',
-    width: '100%',
-    height: '30em',
-};
-
-// render(<MainPage/>, document.getElementById('app'));
-export default MainPage;
+export default ProjectsPage;

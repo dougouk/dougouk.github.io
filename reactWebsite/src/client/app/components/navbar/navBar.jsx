@@ -9,7 +9,8 @@ class NavBarComponent extends React.Component {
           {
               name: 'Home',
               image: require('../../images/github_white.png'),
-              link: '#home'
+              link: '#home',
+              routerLink: '/'
           },
           // {
           //     name: 'About',
@@ -20,11 +21,13 @@ class NavBarComponent extends React.Component {
               name: 'Projects',
               image: require('../../images/email.png'),
               link: '#projects',
+              routerLink: '/projects'
           },
           {
               name: 'Contact',
               image: require('../../images/devpost.png'),
-              link: '#footer'
+              link: '#footer',
+              routerLink: '/'
           }
       ];
 
@@ -38,18 +41,21 @@ class NavBarComponent extends React.Component {
   }
 
   getButton(props) {
+      console.log(props.routerLink);
       return (
-          // <Link to={props.link}>
-              <a href={props.link}
-                  style={buttonStyle}
-                  key={props.name}
-                  onMouseEnter={this.toggleHover}
-                  onMouseLeave={this.toggleHover}>
-                  <Dext style={linkStyle}>
-                      {props.name}
-                  </Dext>
-              </a>
-          // </Link>
+            <Link to={props.routerLink}>
+                {/* <a href={props.link}
+                    style={buttonStyle}
+                    key={props.name}
+                    onMouseEnter={this.toggleHover}
+                onMouseLeave={this.toggleHover}> */}
+                <div style={buttonStyle}>
+                    <Dext style={linkStyle}>
+                        {props.name}
+                    </Dext>
+                </div>
+                {/* </a> */}
+            </Link>
       )
   }
 
@@ -72,8 +78,8 @@ const buttonStyle = {
     alignItems: 'center',
     height: '90%',
     color: '#fff',
-    textDecoration: 'none',
     fontSize: '1.5em',
+    textDecoration: 'none',
     marginRight: '10px'
 };
 

@@ -9,7 +9,6 @@ class Header extends React.Component {
       let description = 'Learner, Creator, Developer';
     return (
         <div id="home" style={mainContainer}>
-            <NavBarComponent style={navBarStyle}/>
             <div style={headerContainer}>
                 <h1 style={titleStyle}>{name}</h1>
                 <h3 style={descriptionStyle}>{description}</h3>
@@ -52,8 +51,5 @@ const descriptionStyle = {
     marginTop: '1em'
 };
 
-const navBarStyle = {
-    marginTop: 'auto'
-};
 
 export default Header;
