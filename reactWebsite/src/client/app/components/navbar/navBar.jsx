@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Dext from '../reuse/Dext.jsx';
+import { Link } from 'react-router-dom';
 
 class NavBarComponent extends React.Component {
   render () {
@@ -10,11 +11,11 @@ class NavBarComponent extends React.Component {
               image: require('../../images/github_white.png'),
               link: '#home'
           },
-          {
-              name: 'About',
-              image: require('../../images/linkedin_white.png'),
-              link: '#'
-          },
+          // {
+          //     name: 'About',
+          //     image: require('../../images/linkedin_white.png'),
+          //     link: '#'
+          // },
           {
               name: 'Projects',
               image: require('../../images/email.png'),
@@ -38,14 +39,17 @@ class NavBarComponent extends React.Component {
 
   getButton(props) {
       return (
-          <a href={props.link}
-              style={buttonStyle}
-              onMouseEnter={this.toggleHover}
-              onMouseLeave={this.toggleHover}>
-              <Dext style={linkStyle}>
-                  {props.name}
-              </Dext>
-          </a>
+          // <Link to={props.link}>
+              <a href={props.link}
+                  style={buttonStyle}
+                  key={props.name}
+                  onMouseEnter={this.toggleHover}
+                  onMouseLeave={this.toggleHover}>
+                  <Dext style={linkStyle}>
+                      {props.name}
+                  </Dext>
+              </a>
+          // </Link>
       )
   }
 
@@ -56,7 +60,7 @@ class NavBarComponent extends React.Component {
 
 const container = {
     backgroundColor: '#0D47A1',
-    width: '100%',
+    width: '101%',
     height: '5em',
     display: 'flex',
     justifyContent: 'flex-end',
