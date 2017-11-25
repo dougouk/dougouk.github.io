@@ -8,7 +8,6 @@ class Dext extends React.Component {
         </div>
     );
   }
-
 }
 
 const textStyle = {

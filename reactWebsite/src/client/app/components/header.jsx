@@ -6,10 +6,10 @@ import NavBarComponent from './navbar/navBar.jsx';
 class Header extends React.Component {
   render () {
       let name = 'Dan Kim';
-      let description = 'Android developer, open for part-time projects';
+      let description = 'Learner, Creator, Developer';
     return (
-        <div style={mainContainer}>
-            {/* <NavBarComponent style={navBarStyle}/> */}
+        <div id="home" style={mainContainer}>
+            <NavBarComponent style={navBarStyle}/>
             <div style={headerContainer}>
                 <h1 style={titleStyle}>{name}</h1>
                 <h3 style={descriptionStyle}>{description}</h3>
@@ -20,9 +20,9 @@ class Header extends React.Component {
 }
 
 const mainContainer = {
-    background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
-    backgroundSize: 'cover',
-    // backgroundColor: '#42A5F5',
+    // background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
+    // backgroundSize: 'cover',
+    backgroundColor: '#42A5F5',
     margin: '0',
     padding: '0',
     width: '100%',

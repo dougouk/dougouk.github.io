@@ -6,12 +6,12 @@ class ContactBar extends React.Component {
       let contactLinks = [
           {
               name: 'Github',
-              image: require('../images/github.png'),
+              image: require('../images/github_black.png'),
               link: 'https://github.com/dougouk'
           },
           {
               name: 'LinkedIn',
-              image: require('../images/linkedin.png'),
+              image: require('../images/linkedin_black.png'),
               link: 'https://www.linkedin.com/in/dougouk/'
           },
           {
@@ -28,10 +28,9 @@ class ContactBar extends React.Component {
 
     return (
         <div class='header' style={container}>
-            {this.getButton(contactLinks[0])}
-            {this.getButton(contactLinks[1])}
-            {this.getButton(contactLinks[2])}
-            {this.getButton(contactLinks[3])}
+            {contactLinks.map((contact, index) =>
+                this.getButton(contact)
+            )}
         </div>
     );
   }

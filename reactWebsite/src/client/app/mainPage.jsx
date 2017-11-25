@@ -104,14 +104,17 @@ const projects = [
     }
 ]
 
-class App extends React.Component {
+class MainPage extends React.Component {
   render () {
     return (
         <div style={container}>
             <Resize>
+                <main>
+                    {this.props.children}
+                </main>
                 <Header/>
-                <ContactBar/>
-                <div style={projectContainer}>
+                {/* <ContactBar/> */}
+                <div id='projects' style={projectContainer}>
                     {projects.map((project, index) =>
                         <ProjectComponent project={project}/>
                     )};
@@ -136,8 +139,6 @@ const projectContainer = {
     justifyContent: 'center',
     backgroundColor: '#E3F2FD',
     paddingBottom: '1em',
-    marginLeft: '1em',
-    marginRight: '1em'
 }
 
 const danguinStyle = {
@@ -149,4 +150,5 @@ const danguinStyle = {
     height: '30em',
 };
 
-render(<App/>, document.getElementById('app'));
+// render(<MainPage/>, document.getElementById('app'));
+export default MainPage;
