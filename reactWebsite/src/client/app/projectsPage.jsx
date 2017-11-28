@@ -4,6 +4,7 @@ import Resize from 'react-resize';
 import Header from './components/header.jsx';
 import ProjectComponent from './components/project/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
+import ShowCaseComponent from './components/showCaseComponent.jsx';
 
 const projects = [
     {
@@ -23,7 +24,7 @@ const projects = [
         title: 'UWClosest',
         date: '2017',
         type: 'React-Native Application',
-        source: require('./images/portfolio/uwclosest.png'),
+        source: require('./images/projects/uwclosest.png'),
         description: 'Mobile application that helps users find open classrooms,' +
         ' vending machines, and parking spots on the University of Waterloo campus.',
         playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest',
@@ -52,7 +53,7 @@ const projects = [
         title: 'DeafBand',
         date: '2017 (In progress)',
         type: 'Arduino & Android',
-        source: require('./images/portfolio/deafband.png'),
+        source: require('./images/projects/deafband.png'),
         description: 'DeafBand is a headband-like device that can recognize and '+
         'pinpoint the direction of certain sounds such as car horns, screaming, etc. ' +
         'Being developed as the Fourth Year Design Project at the University of Waterloo.',
@@ -64,7 +65,7 @@ const projects = [
         date: '2017',
         type: 'WebApp',
         awards: ['KWHacks2017 Top 5'],
-        source: require('./images/portfolio/savescription.png'),
+        source: require('./images/projects/savescription.png'),
         description: 'WebApp to send out automated prescription reminders through '+
             'text and phone calls to a list of managed patients.',
         devPost: 'https://devpost.com/software/safescription',
@@ -102,6 +103,16 @@ const projects = [
     }
 ]
 
+const colors = [
+    '#42A5F5',
+    '#FFB74D',
+    '#5C6BC0',
+    '#26A69A',
+    '#FF7043',
+    '#7E57C2',
+    '#FFC107',
+    '#78909C'
+]
 
 class ProjectsPage extends React.Component {
     render () {
@@ -112,7 +123,16 @@ class ProjectsPage extends React.Component {
                     {/* <ContactBar/> */}
                     <div id='projects' style={projectContainer}>
                         {projects.map((project, index) =>
-                            <ProjectComponent project={project}/>
+                            // <ProjectComponent project={project}/>
+                                <ShowCaseComponent
+                                    key = {index}
+                                    color = {colors[index % colors.length]}
+                                    title = {project.title}
+                                    description = {project.description}
+                                    buttonText = 'See more'
+                                    link = '#'
+                                    imageSrc = {project.source}/>
+
                         )};
                     </div>
                     <div style={danguinStyle}/>
@@ -131,10 +151,9 @@ const container = {
 
 const projectContainer = {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#E3F2FD',
-    paddingBottom: '1em',
+    backgroundColor: '#E3F2FD'
 }
 
 const danguinStyle = {

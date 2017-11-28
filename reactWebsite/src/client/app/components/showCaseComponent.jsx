@@ -1,16 +1,17 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Dext from './reuse/Dext.jsx';
+import { Link } from 'react-router-dom';
 
 class ShowCaseComponent extends React.Component {
   render () {
+      console.log('render');
       let color = this.props.color;
       let title = this.props.title;
       let description = this.props.description;
       let buttonText = this.props.buttonText;
       let link = this.props.link;
       let imageSrc = this.props.imageSrc;
-      console.log(imageSrc);
       const mainContainer = {
           margin: '0',
           padding: '0',
@@ -30,11 +31,11 @@ class ShowCaseComponent extends React.Component {
                     {description}
                 </Dext>
 
-                <a href="#" style={buttonStyle}>
+                <Link to={link} style={buttonStyle}>
                     <Dext>
                         {buttonText}
                     </Dext>
-                </a>
+                </Link>
             </div>
             <div style={imageDiv}>
                 <img src={imageSrc} style={imageStyle}/>
@@ -49,7 +50,8 @@ const textDiv = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    paddingLeft: '4em'
 }
 
 const imageDiv = {
@@ -57,6 +59,7 @@ const imageDiv = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center'
 }
 const titleStyle = {
     fontSize: '4em',
@@ -80,12 +83,12 @@ const buttonStyle = {
     borderColor: '#fff',
     paddingTop: '1em',
     paddingBottom: '1em',
-    paddingLeft: '2em',
-    paddingRight: '2em'
+    paddingLeft: '3em',
+    paddingRight: '3em'
 }
 const imageStyle = {
-    width: '100%',
-    height: '90%'
+    width: '50%',
+    height: '50%'
 }
 
 export default ShowCaseComponent;

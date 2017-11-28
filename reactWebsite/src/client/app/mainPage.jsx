@@ -10,24 +10,46 @@ const blueColor = '#42A5F5';
 const indigoColor = '#5C6BC0';
 const purpleColor = '#7E57C2';
 const amberColor = '#FFD54F';
-const orangeColor = '#FFA726';
+const orangeColor = '#FFB74D';
 const deepOrangeColor = '#FF7043';
 const blueGreyColor = '#78909C';
+
+const showcases = [
+    {
+        title: 'Projects',
+        description: 'Plan, code, develop, architect, I do all that',
+        buttonText: 'See my projects',
+        link: '/projects',
+        color: deepOrangeColor,
+        imageSrc: require('./images/coding.jpg')
+    },
+    {
+        title: 'About me',
+        description: 'Raised in the West, developing in the East',
+        buttonText: 'Know more about me',
+        link: '/about',
+        color: indigoColor,
+        imageSrc: require('./images/danguin2.jpg')
+    }
+]
+
 class MainPage extends React.Component {
   render () {
     return (
         <div style={container}>
             <Resize>
                 <Header/>
-                <ShowCaseComponent
-                    color={deepOrangeColor}
-                    title='title'
-                    description='description'
-                    buttonText='buttonText'
-                    link='/projects'
-                    imageSrc= {require('./images/coding.jpg')}
-                />
-
+                {showcases.map((showcase, index) =>
+                    <ShowCaseComponent
+                        key= {index}
+                        color= {showcase.color}
+                        title= {showcase.title}
+                        description= {showcase.description}
+                        buttonText= {showcase.buttonText}
+                        link= {showcase.link}
+                        imageSrc=  {showcase.imageSrc}
+                    />
+                )}
                 <div style={danguinStyle}/>
                 <Footer/>
             </Resize>
