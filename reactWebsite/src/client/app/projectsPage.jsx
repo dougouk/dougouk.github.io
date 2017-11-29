@@ -4,7 +4,7 @@ import Resize from 'react-resize';
 import Header from './components/header.jsx';
 import ProjectComponent from './components/project/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
-import ShowCaseComponent from './components/showCaseComponent.jsx';
+import ShowCaseProject from './components/showCaseProject.jsx';
 
 const projects = [
     {
@@ -115,6 +115,28 @@ const colors = [
 ]
 
 class ProjectsPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedProject: null,
+            showProjectInfo: false
+        }
+    }
+
+    showProjectDetailsPopup(project) {
+        this.setState({
+            selectedProject: project,
+            showProjectInfo: true
+        })
+    }
+
+    hideProjectDetailsPopup() {
+        this.setState({
+            showProjectInfo: false
+        })
+    }
+
     render () {
         return (
             <div style={container}>
@@ -124,21 +146,29 @@ class ProjectsPage extends React.Component {
                     <div id='projects' style={projectContainer}>
                         {projects.map((project, index) =>
                             // <ProjectComponent project={project}/>
-                                <ShowCaseComponent
+                                <ShowCaseProject
                                     key = {index}
+                                    project = {project}
                                     color = {colors[index % colors.length]}
-                                    title = {project.title}
-                                    description = {project.description}
                                     buttonText = 'See more'
-                                    link = '#'
-                                    imageSrc = {project.source}/>
-
+                                    moreInfo = {this.showProjectDetailsPopup.bind(this)}
+                                />
                         )};
                     </div>
+                    {(() => {
+                        if (this.state.showProjectInfo &&
+                        this.state.selectedProject != null) {
+                            return (<ProjectComponent
+                                project={this.state.selectedProject} />
+                            );
+                        }
+                    })()}
                     <div style={danguinStyle}/>
                     <Footer/>
                 </Resize>
+
             </div>
+
         );
     }
 }
@@ -154,6 +184,10 @@ const projectContainer = {
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#E3F2FD'
+}
+
+const popUpProjectStyle = {
+    position: 'fixed',
 }
 
 const danguinStyle = {

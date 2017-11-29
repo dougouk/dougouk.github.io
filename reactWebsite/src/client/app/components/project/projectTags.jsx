@@ -16,11 +16,11 @@ class ProjectTags extends React.Component {
             return (
                 <div class='header' style={tagContainer}>
                     {tags.map((tag, index) =>
-                        <p style={tagStyle}>
+                        <div key={index} style={tagStyle}>
                             <Dext>
                                 {tag}
                             </Dext>
-                        </p>
+                        </div>
                     )}
                 </div>
             );

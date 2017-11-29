@@ -37,28 +37,30 @@ class ProjectComponent extends React.Component {
         };
 
     return (
-        <div class='header' style={container}>
-            <Card overLevel={5} outLevel={1}>
-                <div style={imageContainer}>
-                    <img src={image} style={imageStyle}/>
-                </div>
-                <div style={textContainer}>
-                    <h2 style={titleStyle}>{title}</h2>
-                    <div style={notesContainer}>
-                        <p style={dateStyle}>{date}</p>
-                        <p style={noteStyle}>{type}</p>
-                        {awardsToDisplay}
+        <div className='header' style={container}>
+            <div style={innerContainer}>
+                <Card overLevel={5} outLevel={1} style={cardContainer}>
+                    <div style={imageContainer}>
+                        <img src={image} style={imageStyle}/>
                     </div>
-                    <p style={descriptionStyle}>{description}</p>
-                    <div style={linkContainer}>
-                        {githubLink}
-                        {playStore}
-                        {devPost}
-                        {website}
+                    <div style={textContainer}>
+                        <h2 style={titleStyle}>{title}</h2>
+                        <div style={notesContainer}>
+                            <p style={dateStyle}>{date}</p>
+                            <p style={noteStyle}>{type}</p>
+                            {awardsToDisplay}
+                        </div>
+                        <p style={descriptionStyle}>{description}</p>
+                        <div style={linkContainer}>
+                            {githubLink}
+                            {playStore}
+                            {devPost}
+                            {website}
+                        </div>
+                        <ProjectTags tags={tags}/>
                     </div>
-                    <ProjectTags tags={tags}/>
-                </div>
-            </Card>
+                </Card>
+            </div>
         </div>
         );
     }
@@ -94,11 +96,26 @@ class ProjectComponent extends React.Component {
 }
 
 const container = {
+    position: 'fixed',
+    left: '0',
+    right: '0',
+    top: '0',
+    bottom: '0',
     marginLeft: '1em',
     marginRight: '1em',
     marginTop: '3em',
+    width: '100%',
+    height: '100%'
+}
+const innerContainer = {
+    position: 'absolute',
+    left: '50%',
     width: '30em'
 };
+const cardContainer = {
+    position: 'relative',
+    left: '-50%'
+}
 
 const imageContainer = {
     display: 'flex',
