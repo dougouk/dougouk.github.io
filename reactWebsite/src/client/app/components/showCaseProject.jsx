@@ -31,6 +31,32 @@ class ShowCaseProject extends React.Component {
             backgroundColor: this.props.color
         };
 
+        const titleStyle = {
+            fontSize: '4em',
+            fontWeight: 'bold',
+            color: this.props.textColor
+        }
+        const descriptionStyle = {
+            fontSize: '1.4em',
+            color: this.props.textColor,
+            marginTop: '4em',
+            marginBottom: '3em'
+        }
+        const buttonStyle = {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            height: '5em',
+            textDecoration: 'none',
+            color: this.props.textColor,
+            borderStyle: 'solid',
+            borderColor: this.props.textColor,
+            paddingTop: '1em',
+            paddingBottom: '1em',
+            paddingLeft: '3em',
+            paddingRight: '3em'
+        }
+
     return (
         <div id="home" style={mainContainer} >
             <div  style={textDiv}>
@@ -70,31 +96,6 @@ const imageDiv = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
-}
-const titleStyle = {
-    fontSize: '4em',
-    fontWeight: 'bold',
-    color: '#fff'
-}
-const descriptionStyle = {
-    fontSize: '1.4em',
-    color: '#fff',
-    marginTop: '4em',
-    marginBottom: '3em'
-}
-const buttonStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    height: '5em',
-    textDecoration: 'none',
-    color: '#fff',
-    borderStyle: 'solid',
-    borderColor: '#fff',
-    paddingTop: '1em',
-    paddingBottom: '1em',
-    paddingLeft: '3em',
-    paddingRight: '3em'
 }
 const imageStyle = {
     width: '50%',

@@ -50,7 +50,7 @@ const footerContainer = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#42A5F5'
+    backgroundColor: '#448AFF'
 };
 
 const nameStyle = {

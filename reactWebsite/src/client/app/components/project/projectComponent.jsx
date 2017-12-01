@@ -36,10 +36,15 @@ class ProjectComponent extends React.Component {
                                 );
         };
 
+        let escapeIcon = require('../../images/cross.png');
+
     return (
         <div className='header' style={container}>
             <div style={innerContainer}>
                 <Card overLevel={5} outLevel={1} style={cardContainer}>
+                    <img src={escapeIcon}
+                        style={escapeIconStyle}
+                        onClick={this.props.lessInfo}/>
                     <div style={imageContainer}>
                         <img src={image} style={imageStyle}/>
                     </div>
@@ -123,6 +128,17 @@ const imageContainer = {
     width: '100%',
     backgroundColor: '#F5F5F5'
 }
+const imageStyle = {
+    alignSelf: 'center',
+    maxHeight: '10em',
+}
+
+const escapeIconStyle = {
+    position: 'absolute',
+    right: '5%',
+    top: '2%',
+    width: '24px',
+}
 
 const textContainer = {
     padding: '2em'
@@ -131,9 +147,6 @@ const textContainer = {
 const notesContainer = {
     display: 'flex',
     flexDirection: 'row'
-}
-const imageStyle = {
-    maxHeight: '10em',
 }
 const titleStyle = {
     margin: '1em 1em 0em 0em',

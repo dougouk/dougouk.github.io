@@ -102,7 +102,7 @@ class NavBarComponent extends React.Component {
 }
 
 const container = {
-    backgroundColor: '#0D47A1',
+    backgroundColor: '#2979FF',
     width: '101%',
     height: '5em',
     display: 'flex',

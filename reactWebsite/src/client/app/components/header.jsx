@@ -21,7 +21,7 @@ class Header extends React.Component {
 const mainContainer = {
     // background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
     // backgroundSize: 'cover',
-    backgroundColor: '#42A5F5',
+    backgroundColor: '#82B1FF',
     margin: '0',
     padding: '0',
     width: '100%',

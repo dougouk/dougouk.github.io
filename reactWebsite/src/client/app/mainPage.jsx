@@ -6,6 +6,8 @@ import Header from './components/header.jsx';
 import ShowCaseComponent from './components/showCaseComponent.jsx';
 import Footer from './components/footer.jsx';
 
+const lightBlue = '#87b4ff';
+const darkBlue = '#2979FF';
 const blueColor = '#42A5F5';
 const indigoColor = '#5C6BC0';
 const purpleColor = '#7E57C2';
@@ -20,7 +22,7 @@ const showcases = [
         description: 'Plan, code, develop, architect, I do all that',
         buttonText: 'See my projects',
         link: '/projects',
-        color: deepOrangeColor,
+        color: darkBlue,
         imageSrc: require('./images/coding.jpg')
     },
     {
@@ -28,7 +30,7 @@ const showcases = [
         description: 'Raised in the West, developing in the East',
         buttonText: 'Know more about me',
         link: '/about',
-        color: indigoColor,
+        color: lightBlue,
         imageSrc: require('./images/danguin2.jpg')
     }
 ]

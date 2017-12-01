@@ -18,7 +18,8 @@ const projects = [
             'by time of departure, with origins, destinations, and price all ' +
             'readily shown to the user in a nice simple format.',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.danpool',
-        tags: ['RegEx', 'Android', 'Facebook SDK', 'Google AdMob', 'SQLite']
+        tags: ['RegEx', 'Android', 'Facebook SDK', 'Google AdMob', 'SQLite'],
+        color: '#2979FF'
     },
     {
         title: 'UWClosest',
@@ -28,7 +29,8 @@ const projects = [
         description: 'Mobile application that helps users find open classrooms,' +
         ' vending machines, and parking spots on the University of Waterloo campus.',
         playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest',
-        tags: ['React-Native', 'Node.js', 'Heroku', 'Postgre SQL']
+        tags: ['React-Native', 'Node.js', 'Heroku', 'Postgre SQL'],
+        color: '#448AFF'
     },
     {
         title: 'Simple Voice Recorder',
@@ -37,7 +39,8 @@ const projects = [
         source: require('./images/portfolio/enregistreur.png'),
         description: 'Simple, quick, high-quality, ad-free audio recording app',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.enregistreur',
-        tags: ['Android', 'Java', 'Android Media Framework', 'Open-source Media Frameworks']
+        tags: ['Android', 'Java', 'Android Media Framework', 'Open-source Media Frameworks'],
+        color: '#FFB74D'
     },
     {
         title: 'RecMob',
@@ -47,7 +50,8 @@ const projects = [
         description: 'Social video community where REAL recognizes REAL',
         website: 'http://recmob.com/',
         playStore: 'https://play.google.com/store/apps/details?id=com.recordmob',
-        tags: ['Android', 'Java']
+        tags: ['Android', 'Java'],
+        color: '#000000'
     },
     {
         title: 'DeafBand',
@@ -58,7 +62,8 @@ const projects = [
         'pinpoint the direction of certain sounds such as car horns, screaming, etc. ' +
         'Being developed as the Fourth Year Design Project at the University of Waterloo.',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband',
-        tags: ['Arduino', 'Android', 'Java', 'C', 'Bluetooth Stack']
+        tags: ['Arduino', 'Android', 'Java', 'C', 'Bluetooth Stack'],
+        color: '#9E9E9E'
     },
     {
         title: 'Savescription',
@@ -69,7 +74,8 @@ const projects = [
         description: 'WebApp to send out automated prescription reminders through '+
             'text and phone calls to a list of managed patients.',
         devPost: 'https://devpost.com/software/safescription',
-        tags: ['Bootstrap', 'HTML', 'CSS', 'Firebase API', 'Twilio API']
+        tags: ['Bootstrap', 'HTML', 'CSS', 'Firebase API', 'Twilio API'],
+        color: '#29B6F6'
     },
     {
         title: 'WalkingBuddy',
@@ -80,7 +86,9 @@ const projects = [
         description: 'Android App that matches people to walk home (or anywhere)'+
             ' together, with safety in mind.',
         devPost: 'https://devpost.com/software/walking-buddy',
-        tags: ['Android', 'Google Places API', 'Google Maps API', 'Firebase API']
+        tags: ['Android', 'Google Places API', 'Google Maps API', 'Firebase API'],
+        color: '#FFAB00'
+        // color: '#e2574c'
     },
     {
         title: 'Foody',
@@ -90,7 +98,8 @@ const projects = [
         description: 'Voice-controlled WebApp that suggests restaurant dishes ' +
             'based on user feedback. Uses NLP.',
         devPost: 'https://devpost.com/software/foody-lfbvrn',
-        tags: ['Nuance Nina Web API', 'Clarify API', 'YellowPages API', 'Python']
+        tags: ['Nuance Nina Web API', 'Clarify API', 'YellowPages API', 'Python'],
+        color: '#d6be89'
     },
     {
         title: 'ParkTheValley',
@@ -99,7 +108,8 @@ const projects = [
         source: require('./images/portfolio/parker.png'),
         description: 'AirBnb & Uber for parking.',
         devPost: 'https://devpost.com/software/parkthevalley',
-        tags: ['Android', 'Google Maps API', 'Google Places API', 'Firebase API']
+        tags: ['Android', 'Google Maps API', 'Google Places API', 'Firebase API'],
+        color: '#66BB6A'
     }
 ]
 
@@ -114,6 +124,15 @@ const colors = [
     '#78909C'
 ]
 
+const colors2 = [
+    '#FFF',
+    '#2979FF'
+]
+
+const textColors = [
+    '#000',
+    '#fff'
+]
 class ProjectsPage extends React.Component {
     constructor(props) {
         super(props);
@@ -125,16 +144,20 @@ class ProjectsPage extends React.Component {
     }
 
     showProjectDetailsPopup(project) {
+        console.log('show project');
         this.setState({
             selectedProject: project,
             showProjectInfo: true
         })
     }
 
-    hideProjectDetailsPopup() {
-        this.setState({
-            showProjectInfo: false
-        })
+    hideProjectDetailsPopup(event) {
+        console.log(event.nativeEvent)
+        if (this.state.showProjectInfo) {
+            this.setState({
+                showProjectInfo: false
+            })
+        }
     }
 
     render () {
@@ -144,29 +167,32 @@ class ProjectsPage extends React.Component {
                     {/* <Header/> */}
                     {/* <ContactBar/> */}
                     <div id='projects' style={projectContainer}>
-                        {projects.map((project, index) =>
+                        {projects.map((project, index) => {
                             // <ProjectComponent project={project}/>
-                                <ShowCaseProject
-                                    key = {index}
-                                    project = {project}
-                                    color = {colors[index % colors.length]}
-                                    buttonText = 'See more'
-                                    moreInfo = {this.showProjectDetailsPopup.bind(this)}
-                                />
+                            const backgroundColor = index % 2 == 0 ? '#fff' : project.color;
+                            return <ShowCaseProject
+                                key = {index}
+                                project = {project}
+                                color = {backgroundColor}
+                                textColor = {textColors[index % textColors.length]}
+                                buttonText = 'See more'
+                                moreInfo = {this.showProjectDetailsPopup.bind(this)}
+                            />
+                        }
                         )};
                     </div>
                     {(() => {
                         if (this.state.showProjectInfo &&
                         this.state.selectedProject != null) {
                             return (<ProjectComponent
-                                project={this.state.selectedProject} />
+                                project={this.state.selectedProject}
+                                lessInfo = {this.hideProjectDetailsPopup.bind(this)} />
                             );
                         }
                     })()}
                     <div style={danguinStyle}/>
                     <Footer/>
                 </Resize>
-
             </div>
 
         );
@@ -176,7 +202,8 @@ class ProjectsPage extends React.Component {
 const container = {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
 }
 
 const projectContainer = {
