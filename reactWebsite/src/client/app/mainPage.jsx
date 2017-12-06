@@ -31,7 +31,7 @@ const showcases = [
         buttonText: 'Know more about me',
         link: '/about',
         color: lightBlue,
-        imageSrc: require('./images/danguin2.jpg')
+        imageSrc: require('./images/busy.jpg')
     }
 ]
 
