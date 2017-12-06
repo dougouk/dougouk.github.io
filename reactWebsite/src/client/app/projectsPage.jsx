@@ -8,6 +8,33 @@ import ShowCaseProject from './components/showCaseProject.jsx';
 
 const projects = [
     {
+        title: 'Trendy',
+        date: '2017',
+        type: 'Facebook Chat Bot',
+        awards: [
+            'Informa Challenge 1st Place'
+        ],
+        source: require('./images/portfolio/trendy.png'),
+        description: 'Data does not lie. Uncover trends with data driven algorithms to invest in emerging tech companies.',
+        devPost: 'https://devpost.com/software/trendy',
+        tags: [
+            'Facebook SDK', 'Node.js', 'Heroku', 'Python'
+        ],
+        color: '#40C4FF'
+    },
+    {
+        title: 'Coffee Time',
+        date: '2017',
+        type: 'Android Application',
+        source: require('./images/portfolio/covfefe.png'),
+        description: 'One friend pays for everyone\'s coffee, other friends pay back with Bitcoin through the Android app',
+        devPost: 'https://devpost.com/software/coffee-time-eqr316',
+        tags: [
+            'Android', 'Firebase Auth', 'Firebase Database', 'Firebase Functions'
+        ],
+        color: '#FF6E40'
+    },
+    {
         title: 'Danpool',
         date: '2017',
         type: 'Android Application',
