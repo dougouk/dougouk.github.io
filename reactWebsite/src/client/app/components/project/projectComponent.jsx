@@ -113,20 +113,24 @@ const container = {
     height: '100%'
 }
 const innerContainer = {
-    position: 'absolute',
-    left: '50%',
-    width: '30em'
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
 };
 const cardContainer = {
     position: 'relative',
-    left: '-50%'
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
 }
 
 const imageContainer = {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#8C9EFF'
 }
 const imageStyle = {
     alignSelf: 'center',
@@ -141,7 +145,8 @@ const escapeIconStyle = {
 }
 
 const textContainer = {
-    padding: '2em'
+    paddingLeft: '2em',
+    paddingRight: '2em'
 }
 
 const notesContainer = {

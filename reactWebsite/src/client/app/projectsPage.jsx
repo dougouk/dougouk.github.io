@@ -11,34 +11,33 @@ const projects = [
         title: 'Trendy',
         date: '2017',
         type: 'Facebook Chat Bot',
-        awards: [
-            'Informa Challenge 1st Place'
-        ],
+        awards: ['Informa Challenge 1st Place'],
         source: require('./images/portfolio/trendy.png'),
+        shortDescription: 'Data does not lie. Uncover trends with data driven algorithms to invest in emerging tech companies.',
         description: 'Data does not lie. Uncover trends with data driven algorithms to invest in emerging tech companies.',
         devPost: 'https://devpost.com/software/trendy',
         tags: [
             'Facebook SDK', 'Node.js', 'Heroku', 'Python'
         ],
         color: '#40C4FF'
-    },
-    {
+    }, {
         title: 'Coffee Time',
         date: '2017',
         type: 'Android Application',
         source: require('./images/portfolio/covfefe.png'),
+        shortDescription: 'Let\'s make Bitcoin an everyday convenience',
         description: 'One friend pays for everyone\'s coffee, other friends pay back with Bitcoin through the Android app',
         devPost: 'https://devpost.com/software/coffee-time-eqr316',
         tags: [
             'Android', 'Firebase Auth', 'Firebase Database', 'Firebase Functions'
         ],
         color: '#FF6E40'
-    },
-    {
+    }, {
         title: 'Danpool',
         date: '2017',
         type: 'Android Application',
         source: require('./images/portfolio/danpool.png'),
+        shortDescription: 'Get rid of the headache when you search for carpools on Facebook',
         description: 'Mobile application that greatly simplifies the process ' + 'of finding your next carpool between Ontario and Quebec cities. ' + 'Displays offers ' + 'by time of departure, with origins, destinations, and price all ' + 'readily shown to the user in a nice simple format.',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.danpool',
         tags: [
@@ -50,6 +49,7 @@ const projects = [
         date: '2017',
         type: 'React-Native Application',
         source: require('./images/projects/uwclosest.png'),
+        shortDescription: 'Are there parking spots available? Is the classroom open, or going to host a lecture soon? Let\'s find out with UWClosest',
         description: 'Mobile application that helps users find open classrooms,' + ' vending machines, and parking spots on the University of Waterloo campus.',
         playStore: 'https://play.google.com/store/apps/details?id=com.uwclosest',
         tags: [
@@ -61,6 +61,7 @@ const projects = [
         date: '2017',
         type: 'Android Application',
         source: require('./images/portfolio/enregistreur.png'),
+        shortDescription: 'Simple. Quick. High-quality.',
         description: 'Simple, quick, high-quality, ad-free audio recording app',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.enregistreur',
         tags: [
@@ -72,6 +73,7 @@ const projects = [
         date: '2017',
         type: 'Android Application (Freelancing)',
         source: require('./images/portfolio/recordMob.jpg'),
+        shortDescription: 'End the fake news',
         description: 'Social video community where REAL recognizes REAL',
         website: 'http://recmob.com/',
         playStore: 'https://play.google.com/store/apps/details?id=com.recordmob',
@@ -84,6 +86,7 @@ const projects = [
         date: '2017 (In progress)',
         type: 'Arduino & Android',
         source: require('./images/projects/deafband.png'),
+        shortDescription: 'If you can\'t hear them, feel them',
         description: 'DeafBand is a headband-like device that can recognize and ' + 'pinpoint the direction of certain sounds such as car horns, screaming, etc. ' + 'Being developed as the Fourth Year Design Project at the University of Waterloo.',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband',
         tags: [
@@ -96,6 +99,7 @@ const projects = [
         type: 'WebApp',
         awards: ['KWHacks2017 Top 5'],
         source: require('./images/projects/savescription.png'),
+        shortDescription: 'Forgot to take your medicine? Let my bot call and remind you...',
         description: 'WebApp to send out automated prescription reminders through ' + 'text and phone calls to a list of managed patients.',
         devPost: 'https://devpost.com/software/safescription',
         tags: [
@@ -110,6 +114,7 @@ const projects = [
             'Hackatown2017 Top 6', 'Founders Institute Award'
         ],
         source: require('./images/portfolio/walkingBuddy.png'),
+        shortDescription: 'Afraid to walk home alone? Get a Walking Buddy :)',
         description: 'Android App that matches people to walk home (or anywhere)' + ' together, with safety in mind.',
         devPost: 'https://devpost.com/software/walking-buddy',
         tags: [
@@ -122,6 +127,7 @@ const projects = [
         date: '2017',
         type: 'WebApp',
         source: require('./images/portfolio/foody.png'),
+        shortDescription: 'Foody, what do should I eat?',
         description: 'Voice-controlled WebApp that suggests restaurant dishes ' + 'based on user feedback. Uses NLP.',
         devPost: 'https://devpost.com/software/foody-lfbvrn',
         tags: [
@@ -133,6 +139,7 @@ const projects = [
         date: '2017',
         type: 'Android Application',
         source: require('./images/portfolio/parker.png'),
+        shortDescription: 'AirBnb & Uber for parking.',
         description: 'AirBnb & Uber for parking.',
         devPost: 'https://devpost.com/software/parkthevalley',
         tags: [
@@ -163,19 +170,20 @@ class ProjectsPage extends React.Component {
         this.state = {
             selectedProject: null,
             showProjectInfo: false,
-            projectOpacity: 1
+            projectOpacity: 1,
+            pointerEvents: 'auto'
         }
     }
 
     showProjectDetailsPopup(project) {
         console.log('show project');
-        this.setState({selectedProject: project, showProjectInfo: true, projectOpacity: 0.3})
+        this.setState({selectedProject: project, showProjectInfo: true, projectOpacity: 0.3, pointerEvents: 'none'})
     }
 
     hideProjectDetailsPopup(event) {
         console.log('hide project');
         if (this.state.showProjectInfo) {
-            this.setState({showProjectInfo: false, projectOpacity: 1})
+            this.setState({showProjectInfo: false, projectOpacity: 1, pointerEvents: 'auto'})
         }
     }
 
@@ -184,16 +192,23 @@ class ProjectsPage extends React.Component {
             <Resize>
                 {/* <Header/> */}
                 {/* <ContactBar/> */}
-                <div id='projects' style={Object.assign({ opacity: this.state.projectOpacity}, projectContainer)}>
-                    {
-                        projects.map((project, index) => {
-                            // <ProjectComponent project={project}/>
-                            const backgroundColor = index % 2 == 0
-                                ? '#fff'
-                                : project.color;
-                            return <ShowCaseProject key={index} project={project} color={backgroundColor} textColor={textColors[index % textColors.length]} buttonText='See more' moreInfo={this.showProjectDetailsPopup.bind(this)}/>
-                        })
-                    };
+                <div onClick={this.hideProjectDetailsPopup.bind(this)}>
+                    <div id='projects' style={Object.assign({
+                            opacity: this.state.projectOpacity
+                    }, projectContainer)}>
+                        {
+                            projects.map((project, index) => {
+                                // <ProjectComponent project={project}/>
+                                const backgroundColor = index % 2 == 0
+                                    ? '#fff'
+                                    : project.color;
+                                return <ShowCaseProject key={index} project={project} color={backgroundColor} textColor={textColors[index % textColors.length]} buttonText='SEE MORE' moreInfo={this.showProjectDetailsPopup.bind(this)}/>
+                            })
+                        };
+                    </div>
+
+                    <div style={danguinStyle}/>
+                    <Footer/>
                 </div>
                 {
                     (() => {
@@ -202,8 +217,6 @@ class ProjectsPage extends React.Component {
                         }
                     })()
                 }
-                <div style={danguinStyle}/>
-                <Footer/>
             </Resize>
         </div>);
     }
@@ -219,7 +232,8 @@ const container = {
 const projectContainer = {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: '5em'
 }
 
 const popUpProjectStyle = {
