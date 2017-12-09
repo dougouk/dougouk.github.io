@@ -198,7 +198,6 @@ class ProjectsPage extends React.Component {
                     }, projectContainer)}>
                         {
                             projects.map((project, index) => {
-                                // <ProjectComponent project={project}/>
                                 const backgroundColor = index % 2 == 0
                                     ? '#fff'
                                     : project.color;
