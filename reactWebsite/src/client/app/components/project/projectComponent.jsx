@@ -76,6 +76,9 @@ class ProjectComponent extends React.Component {
             cardContainer = {
                 position: 'relative',
                 width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
             }
         } else {
             container = {
@@ -93,6 +96,9 @@ class ProjectComponent extends React.Component {
             cardContainer = {
                 position: 'relative',
                 width: '50%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
             }
         }
 
@@ -103,31 +109,33 @@ class ProjectComponent extends React.Component {
                         <img src={image} style={imageStyle}/>
                         </div> */
                     }
-                    <div className='cardDiv' style={Object.assign({
+                    <div className='backgroundImageDiv' style={Object.assign({
                         backgroundImage: `url(${image})`,
                         backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center'
-                    }, cardFlexContainer)}>
-                        <img src={escapeIcon} style={escapeIconStyle} onClick={this.props.lessInfo}/>
+                        backgroundPosition: 'center',
+                        backgroundSize: '50%',
+                        opacity: 0.2
+                    }, cardFlexContainer)}/>
 
-                        <div style={textContainer}>
-                            <h2 style={titleStyle}>{title}</h2>
-                            <div style={notesContainer}>
-                                <p style={dateStyle}>{date}</p>
-                                <p style={noteStyle}>{type}</p>
-                                {awardsToDisplay}
-                            </div>
-                            <p style={descriptionStyle}>{description}</p>
-                            <div style={linkContainer}>
-                                {githubLink}
-                                {playStore}
-                                {devPost}
-                                {website}
-                            </div>
-                            <ProjectTags tags={tags}/>
+                    <img src={escapeIcon} style={escapeIconStyle} onClick={this.props.lessInfo}/>
+
+                    <div style={textContainer}>
+                        <h2 style={titleStyle}>{title}</h2>
+                        <div style={notesContainer}>
+                            <p style={dateStyle}>{date}</p>
+                            <p style={noteStyle}>{type}</p>
+                            {awardsToDisplay}
                         </div>
-
+                        <p style={descriptionStyle}>{description}</p>
+                        <div style={linkContainer}>
+                            {githubLink}
+                            {playStore}
+                            {devPost}
+                            {website}
+                        </div>
+                        <ProjectTags tags={tags}/>
                     </div>
+
                 </Card>
             </div>
         </div>);
@@ -166,9 +174,9 @@ const innerContainer = {
     justifyContent: 'center'
 };
 const cardFlexContainer = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    position: 'absolute',
+    width: '100%',
+    height: '100%'
 }
 
 const imageContainer = {
