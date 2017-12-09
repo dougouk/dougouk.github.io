@@ -103,11 +103,11 @@ class ProjectComponent extends React.Component {
                         <img src={image} style={imageStyle}/>
                         </div> */
                     }
-                    <div style={Object.assign({
-                        backgroundImage: {
-                                image
-                        }
-                        }, cardFlexContainer)}>
+                    <div className='cardDiv' style={Object.assign({
+                        backgroundImage: `url(${image})`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center'
+                    }, cardFlexContainer)}>
                         <img src={escapeIcon} style={escapeIconStyle} onClick={this.props.lessInfo}/>
 
                         <div style={textContainer}>

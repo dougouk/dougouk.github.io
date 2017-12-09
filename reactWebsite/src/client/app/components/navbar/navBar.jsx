@@ -53,12 +53,12 @@ class NavBarComponent extends React.Component {
                 link: '#projects',
                 routerLink: '/projects'
             },
-            {
-                name: 'Contact',
-                image: require('../../images/devpost.png'),
-                link: '#footer',
-                routerLink: '/'
-            }
+            // {
+            //     name: 'Contact',
+            //     image: require('../../images/devpost.png'),
+            //     link: '#footer',
+            //     routerLink: '/'
+            // }
         ];
         if (!this.state.isHide) {
             return (

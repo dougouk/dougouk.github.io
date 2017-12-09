@@ -25,39 +25,41 @@ const showcases = [
         color: darkBlue,
         imageSrc: require('./images/coding.jpg')
     },
-    {
-        title: 'About me',
-        description: 'Raised in the West, developing in the East',
-        buttonText: 'Know more about me',
-        link: '/about',
-        color: lightBlue,
-        imageSrc: require('./images/busy.jpg')
-    }
+    // {
+    //     title: 'About me',
+    //     description: 'Raised in the West, developing in the East',
+    //     buttonText: 'Know more about me',
+    //     link: '/about',
+    //     color: lightBlue,
+    //     imageSrc: require('./images/busy.jpg')
+    // }
 ]
 
 class MainPage extends React.Component {
-  render () {
-    return (
-        <div style={container}>
+    constructor(props) {
+        super(props);
+
+        // Start at top of page
+        window.scrollTo(0, 0);
+    }
+
+    render() {
+        return (<div style={container}>
             <Resize>
-                <Header/>
-                {showcases.map((showcase, index) =>
+                <Header/> {showcases.map((showcase, index) =>
                     <ShowCaseComponent
-                        key= {index}
-                        color= {showcase.color}
-                        title= {showcase.title}
-                        description= {showcase.description}
-                        buttonText= {showcase.buttonText}
-                        link= {showcase.link}
-                        imageSrc=  {showcase.imageSrc}
-                    />
-                )}
+                        key={index}
+                        color={showcase.color}
+                        title={showcase.title}
+                        description={showcase.description}
+                        buttonText={showcase.buttonText}
+                        link={showcase.link}
+                        imageSrc={showcase.imageSrc}/>)}
                 <div style={danguinStyle}/>
                 <Footer/>
             </Resize>
-        </div>
-    );
-  }
+        </div>);
+    }
 }
 
 const container = {
@@ -71,7 +73,7 @@ const projectContainer = {
     flexWrap: 'wrap',
     justifyContent: 'center',
     backgroundColor: '#E3F2FD',
-    paddingBottom: '1em',
+    paddingBottom: '1em'
 }
 
 const danguinStyle = {
@@ -80,8 +82,7 @@ const danguinStyle = {
     margin: '0',
     padding: '0',
     width: '100%',
-    height: '30em',
+    height: '30em'
 };
 
-// render(<MainPage/>, document.getElementById('app'));
 export default MainPage;

@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Switch, Route } from 'react-router-dom';
 import MainPage from './mainPage.jsx';
 import ProjectsPage from './projectsPage.jsx';
+import AboutPage from './aboutPage.jsx';
 import NavBarComponent from './components/navbar/navBar.jsx';
 
 class MyRouter extends React.Component {
@@ -13,6 +14,7 @@ class MyRouter extends React.Component {
                 <Switch>
                     <Route exact path='/' component={MainPage}/>
                     <Route path='/projects' component={ProjectsPage}/>
+                    <Route path='/about' component={AboutPage}/>
                 </Switch>
             </div>
         );

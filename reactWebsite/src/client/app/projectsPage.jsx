@@ -167,6 +167,8 @@ class ProjectsPage extends React.Component {
     constructor(props) {
         super(props);
 
+        // Start at top of page
+        window.scrollTo(0,0);
         this.state = {
             selectedProject: null,
             showProjectInfo: false,
@@ -190,8 +192,6 @@ class ProjectsPage extends React.Component {
     render() {
         return (<div style={container}>
             <Resize>
-                {/* <Header/> */}
-                {/* <ContactBar/> */}
                 <div onClick={this.hideProjectDetailsPopup.bind(this)}>
                     <div id='projects' style={Object.assign({
                             opacity: this.state.projectOpacity

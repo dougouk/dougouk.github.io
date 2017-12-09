@@ -86,7 +86,7 @@ const contactLinkStyle = {
 };
 
 const copyrightStyle = {
-    fontColor: '#777',
+    color: '#FFF',
     fontFamily: '"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif',
     marginTop: '0.5em'
 }
