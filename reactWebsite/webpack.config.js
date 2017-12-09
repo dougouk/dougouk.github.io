@@ -8,7 +8,8 @@ var config = {
   entry: APP_DIR + '/root.jsx',
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: BUILD_DIR + '/'
     },
   module : {
     loaders : [
@@ -26,8 +27,24 @@ var config = {
         // Load images
         {
             test: /\.(png|svg|jpg|gif)$/,
-            loader: 'url-loader?limit=100000'
+            loader: 'url-loader?limit=1000'
         }
+
+        // {
+        //     test: /\.(jpg|png|svg)$/,
+        //     loader: 'file-loader'
+        // }
+
+        // File loader
+        // {
+        //     test: /\.(png|jpg|gif)$/,
+        //     use: [
+        //         {
+        //             loader: 'file-loader?name=/public/icons/[name].[ext]"}',
+        //             options: {}
+        //         }
+        //     ]
+        // }
     ]
   }
 };

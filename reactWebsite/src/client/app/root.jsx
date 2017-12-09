@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import MyRouter from './myRouter.jsx';
 
 class Root extends React.Component {
@@ -8,9 +8,9 @@ class Root extends React.Component {
         console.log('ROOT');
         return (
             <div>
-                <BrowserRouter>
+                <HashRouter>
                     <MyRouter/>
-                </BrowserRouter>
+                </HashRouter>
             </div>
         )
     }

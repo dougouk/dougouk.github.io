@@ -14,13 +14,13 @@ class ProjectTags extends React.Component {
 
         if(tags){
             return (
-                <div class='header' style={tagContainer}>
+                <div className='header' style={tagContainer}>
                     {tags.map((tag, index) =>
-                        <p style={tagStyle}>
+                        <div key={index} style={tagStyle}>
                             <Dext>
                                 {tag}
                             </Dext>
-                        </p>
+                        </div>
                     )}
                 </div>
             );

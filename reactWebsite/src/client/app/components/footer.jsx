@@ -32,7 +32,7 @@ class Footer extends React.Component {
             </a>
             <p>
                 {contactLinks.map((contact, index) =>
-                    <a href={contact.link} style={contactLinkStyle} target="_blank">
+                    <a key={index} href={contact.link} style={contactLinkStyle} target="_blank">
                         <img src={contact.image} width='32'/>
                     </a>
                 )}
@@ -50,7 +50,7 @@ const footerContainer = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#42A5F5'
+    backgroundColor: '#448AFF'
 };
 
 const nameStyle = {
@@ -86,7 +86,7 @@ const contactLinkStyle = {
 };
 
 const copyrightStyle = {
-    fontColor: '#777',
+    color: '#FFF',
     fontFamily: '"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif',
     marginTop: '0.5em'
 }

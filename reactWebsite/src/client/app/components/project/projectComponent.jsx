@@ -5,118 +5,202 @@ import ProjectTags from './projectTags.jsx';
 import Dext from '../reuse/Dext.jsx';
 
 class ProjectComponent extends React.Component {
-  render () {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            width: window.innerWidth
+        };
+
+        this.handleWindowChange = this.handleWindowChange.bind(this);
+    }
+
+    componentWillMount() {
+        window.addEventListener('resize', this.handleWindowChange);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowChange);
+    }
+
+    handleWindowChange() {
+        this.setState({width: window.innerWidth});
+    }
+
+    render() {
         let title = this.props.project.title;
         let date = this.props.project.date;
         let type = this.props.project.type;
         let description = this.props.project.description;
         let image = this.props.project.source;
-        let githubLink = this.props.project.github ?
-                            this.getLink(this.props.project.github, 'Github')
-                            : null;
-        let playStore = this.props.project.playStore ?
-                            this.getGooglePlayLink(this.props.project.playStore, 'PlayStore')
-                            : null;
-        let devPost = this.props.project.devPost ?
-                            this.getDevpostLink(this.props.project.devPost, 'DevPost')
-                            : null;
-        let website = this.props.project.website ?
-                            this.getWebsiteLink(this.props.project.website, 'Website')
-                            : null;
+        let githubLink = this.props.project.github
+            ? this.getLink(this.props.project.github, 'Github')
+            : null;
+        let playStore = this.props.project.playStore
+            ? this.getGooglePlayLink(this.props.project.playStore, 'PlayStore')
+            : null;
+        let devPost = this.props.project.devPost
+            ? this.getDevpostLink(this.props.project.devPost, 'DevPost')
+            : null;
+        let website = this.props.project.website
+            ? this.getWebsiteLink(this.props.project.website, 'Website')
+            : null;
         let tags = this.props.project.tags;
 
         var awardsToDisplay;
-        if(this.props.project.awards){
-            awardsToDisplay = this.props.project.awards.map((award, index) =>
-                                    <p style={awardStyle}>
-                                        <Dext>
-                                            {award}
-                                        </Dext>
-                                    </p>
-                                );
+        if (this.props.project.awards) {
+            awardsToDisplay = this.props.project.awards.map((award, index) => <p style={awardStyle}>
+                <Dext>
+                    {award}
+                </Dext>
+            </p>);
         };
 
-    return (
-        <div class='header' style={container}>
-            <Card overLevel={5} outLevel={1}>
-                <div style={imageContainer}>
-                    <img src={image} style={imageStyle}/>
-                </div>
-                <div style={textContainer}>
-                    <h2 style={titleStyle}>{title}</h2>
-                    <div style={notesContainer}>
-                        <p style={dateStyle}>{date}</p>
-                        <p style={noteStyle}>{type}</p>
-                        {awardsToDisplay}
+        let escapeIcon = require('../../images/cross.png');
+
+        const isMobile = this.state.width <= 500;
+        var container;
+        var cardContainer;
+
+        if (isMobile) {
+            container = {
+                position: 'fixed',
+                left: '0',
+                right: '0',
+                top: '0',
+                bottom: '0',
+                marginTop: '3em',
+                width: '100%',
+                height: '100%'
+            }
+            cardContainer = {
+                position: 'relative',
+                width: '100%',
+            }
+        } else {
+            container = {
+                position: 'fixed',
+                left: '0',
+                right: '0',
+                top: '0',
+                bottom: '0',
+                marginLeft: '1em',
+                marginRight: '1em',
+                marginTop: '3em',
+                width: '100%',
+                height: '100%'
+            }
+            cardContainer = {
+                position: 'relative',
+                width: '50%',
+            }
+        }
+
+        return (<div className='header' style={container}>
+            <div className='innerContainer' style={innerContainer}>
+                <Card className='card' overLevel={5} outLevel={1} style={cardContainer}>
+                    {/* <div style={imageContainer}>
+                        <img src={image} style={imageStyle}/>
+                        </div> */
+                    }
+                    <div className='cardDiv' style={Object.assign({
+                        backgroundImage: `url(${image})`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center'
+                    }, cardFlexContainer)}>
+                        <img src={escapeIcon} style={escapeIconStyle} onClick={this.props.lessInfo}/>
+
+                        <div style={textContainer}>
+                            <h2 style={titleStyle}>{title}</h2>
+                            <div style={notesContainer}>
+                                <p style={dateStyle}>{date}</p>
+                                <p style={noteStyle}>{type}</p>
+                                {awardsToDisplay}
+                            </div>
+                            <p style={descriptionStyle}>{description}</p>
+                            <div style={linkContainer}>
+                                {githubLink}
+                                {playStore}
+                                {devPost}
+                                {website}
+                            </div>
+                            <ProjectTags tags={tags}/>
+                        </div>
+
                     </div>
-                    <p style={descriptionStyle}>{description}</p>
-                    <div style={linkContainer}>
-                        {githubLink}
-                        {playStore}
-                        {devPost}
-                        {website}
-                    </div>
-                    <ProjectTags tags={tags}/>
-                </div>
-            </Card>
-        </div>
-        );
+                </Card>
+            </div>
+        </div>);
     }
 
-    getLink(link, name){
-        return (
-            <a href={link} style={buttonStyle} target="_blank">
-                <p style={linkStyle}>{name}</p>
-            </a>);
+    getLink(link, name) {
+        return (<a href={link} style={buttonStyle} target="_blank">
+            <p style={linkStyle}>{name}</p>
+        </a>);
     }
 
-    getGooglePlayLink(link, name){
-        return (
-            <a href={link} style={buttonStyle} target="_blank">
-                <img src="http://www.android.com/images/brand/android_app_on_play_large.png"/>
-            </a>);
+    getGooglePlayLink(link, name) {
+        return (<a href={link} style={buttonStyle} target="_blank">
+            <img src="http://www.android.com/images/brand/android_app_on_play_large.png"/>
+        </a>);
     }
 
-    getDevpostLink(link, name){
-        return (
-            <a href={link} style={buttonStyle} target="_blank">
-                <img src={require('../../images/devpost.png')}/>
-            </a>);
+    getDevpostLink(link, name) {
+        return (<a href={link} style={buttonStyle} target="_blank">
+            <img src={require('../../images/devpost.png')}/>
+        </a>);
     }
 
-    getWebsiteLink(link, name){
-        return (
-            <a href={link} style={buttonStyle} target="_blank">
-                <img src={require('../../images/website.png')}/>
-            </a>);
+    getWebsiteLink(link, name) {
+        return (<a href={link} style={buttonStyle} target="_blank">
+            <img src={require('../../images/website.png')}/>
+        </a>);
     }
 
 }
 
-const container = {
-    marginLeft: '1em',
-    marginRight: '1em',
-    marginTop: '3em',
-    width: '30em'
+const innerContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
 };
+const cardFlexContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+}
 
 const imageContainer = {
+    position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#8C9EFF'
+}
+const imageStyle = {
+    alignSelf: 'center',
+    maxHeight: '10em',
+    width: '100%',
+    height: '100%',
+    opacity: 0.2
+}
+
+const escapeIconStyle = {
+    position: 'absolute',
+    right: '5%',
+    top: '2%',
+    width: '24px'
 }
 
 const textContainer = {
-    padding: '2em'
+    paddingLeft: '2em',
+    paddingRight: '2em'
 }
 
 const notesContainer = {
     display: 'flex',
     flexDirection: 'row'
-}
-const imageStyle = {
-    maxHeight: '10em',
 }
 const titleStyle = {
     margin: '1em 1em 0em 0em',
