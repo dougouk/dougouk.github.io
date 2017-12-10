@@ -45,7 +45,7 @@ class Header extends React.Component {
 const mainContainer = {
     // background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
     // backgroundSize: 'cover',
-    backgroundColor: '#82B1FF',
+    backgroundColor: '#FFF',
     margin: '0',
     padding: '0',
     width: '100%',
@@ -63,7 +63,7 @@ const titleStyle = {
     textAlign: 'center',
     fontSize: '5em',
     fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-    color: '#FFF',
+    color: '#2979FF',
     margin: 0
 };
 
@@ -71,7 +71,7 @@ const descriptionStyle = {
     textAlign: 'center',
     fontSize: '3em',
     fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-    color: '#FFF',
+    color: '#2979FF',
     marginTop: '1em'
 };
 
