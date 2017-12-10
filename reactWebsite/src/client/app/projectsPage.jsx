@@ -2,9 +2,11 @@ import React from 'react';
 import {render} from 'react-dom';
 import Resize from 'react-resize';
 import Header from './components/header.jsx';
-import ProjectComponent from './components/project/ProjectComponent.jsx';
+import ProjectComponent from './components/project/projectDetail/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
-import ShowCaseProject from './components/showCaseProject.jsx';
+import ShowCaseProject from './components/project/showCaseProject.jsx';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import animations from './components/reuse/animations.css';
 
 const projects = [
     {
@@ -168,7 +170,7 @@ class ProjectsPage extends React.Component {
         super(props);
 
         // Start at top of page
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
         this.state = {
             selectedProject: null,
             showProjectInfo: false,
@@ -194,20 +196,29 @@ class ProjectsPage extends React.Component {
     }
 
     render() {
+
+        const items = projects.map((project, index) => {
+            const backgroundColor = index % 2 == 0
+                ? '#fff'
+                : project.color;
+            return <ShowCaseProject key={index} project={project} color={backgroundColor} textColor={textColors[index % textColors.length]} buttonText='SEE MORE' moreInfo={this.showProjectDetailsPopup.bind(this)}/>
+        });
+
         return (<div style={container}>
             <Resize>
                 <div onClick={this.hideProjectDetailsPopup.bind(this)}>
+
                     <div id='projects' style={Object.assign({
                             opacity: this.state.projectOpacity
                     }, projectContainer)}>
-                        {
-                            projects.map((project, index) => {
-                                const backgroundColor = index % 2 == 0
-                                    ? '#fff'
-                                    : project.color;
-                                return <ShowCaseProject key={index} project={project} color={backgroundColor} textColor={textColors[index % textColors.length]} buttonText='SEE MORE' moreInfo={this.showProjectDetailsPopup.bind(this)}/>
-                            })
-                        };
+                        <ReactCSSTransitionGroup
+                            transitionName={animations}
+                            transitionAppear={true}
+                            transitionAppearTimeout={500}
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={500}>
+                            {items}
+                        </ReactCSSTransitionGroup>
                     </div>
 
                     <div style={danguinStyle}/>
@@ -216,16 +227,23 @@ class ProjectsPage extends React.Component {
                 {
                     (() => {
                         if (this.state.showProjectInfo && this.state.selectedProject != null) {
-                            return (<ProjectComponent cuteBaozi={this.cute.bind(this)} project={this.state.selectedProject} lessInfo={this.hideProjectDetailsPopup.bind(this)}/>);
+                            return (<ReactCSSTransitionGroup transitionName='example'
+                                transitionAppear={true}
+                                transitionAppearTimeout={500}
+                                transitionEnterTimeout={500}
+                                transitionLeaveTimeout={500}>
+                                <ProjectComponent key={this.state.selectedProject.title} cuteBaozi={this.cute.bind(this)} project={this.state.selectedProject} lessInfo={this.hideProjectDetailsPopup.bind(this)}/>
+                            </ReactCSSTransitionGroup>
+                            );
                         }
                     })()
                 }
-            </Resize>
-        </div>);
-    }
-}
+                        </Resize>
+                    </div>);
+                }
+                        }
 
-const container = {
+                        const container = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

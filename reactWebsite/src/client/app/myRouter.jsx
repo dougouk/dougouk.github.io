@@ -5,6 +5,7 @@ import MainPage from './mainPage.jsx';
 import ProjectsPage from './projectsPage.jsx';
 import AboutPage from './aboutPage.jsx';
 import NavBarComponent from './components/navbar/navBar.jsx';
+import './components/reuse/animations.css';
 
 class MyRouter extends React.Component {
     render () {

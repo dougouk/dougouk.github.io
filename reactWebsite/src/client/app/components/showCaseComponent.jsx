@@ -15,10 +15,12 @@ class ShowCaseComponent extends React.Component {
     }
 
     componentWillMount() {
+        console.log('componentWillMount');
         window.addEventListener('resize', this.handleWindowChange);
     }
 
     componentWillUnmount() {
+        console.log('componentWillUnmount');
         window.removeEventListener('resize', this.handleWindowChange);
     }
 
@@ -51,7 +53,8 @@ class ShowCaseComponent extends React.Component {
                 alignItems: 'center',
                 backgroundColor: this.props.color,
                 paddingTop: '1em',
-                paddingBottom: '1em'
+                paddingBottom: '1em',
+                transition: '500ms ease-in'
             };
             const imageDiv = {
                 flex: 1,

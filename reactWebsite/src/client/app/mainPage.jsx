@@ -1,10 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Resize from 'react-resize';
-import AwesomeComponent from './components/AwesomeComponent.jsx';
 import Header from './components/header.jsx';
 import ShowCaseComponent from './components/showCaseComponent.jsx';
 import Footer from './components/footer.jsx';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const lightBlue = '#87b4ff';
 const darkBlue = '#2979FF';
@@ -44,18 +44,28 @@ class MainPage extends React.Component {
     }
 
     render() {
+        const items = showcases.map((showcase, index) =>
+            <ShowCaseComponent
+                key={index}
+                color={showcase.color}
+                title={showcase.title}
+                description={showcase.description}
+                buttonText={showcase.buttonText}
+                link={showcase.link}
+                imageSrc={showcase.imageSrc}/>);
+
         return (<div style={container}>
             <Resize>
-                <Header/> {showcases.map((showcase, index) =>
-                    <ShowCaseComponent
-                        key={index}
-                        color={showcase.color}
-                        title={showcase.title}
-                        description={showcase.description}
-                        buttonText={showcase.buttonText}
-                        link={showcase.link}
-                        imageSrc={showcase.imageSrc}/>)}
-                <div style={danguinStyle}/>
+                <Header/>
+                <ReactCSSTransitionGroup
+                    transitionName="example"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={500}>
+                    {items}
+                </ReactCSSTransitionGroup>
+                    <div style={danguinStyle}/>
                 <Footer/>
             </Resize>
         </div>);
