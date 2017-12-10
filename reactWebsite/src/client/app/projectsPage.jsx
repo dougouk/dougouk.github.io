@@ -189,6 +189,10 @@ class ProjectsPage extends React.Component {
         }
     }
 
+    cute(event) {
+        console.log('I love you ');
+    }
+
     render() {
         return (<div style={container}>
             <Resize>
@@ -212,7 +216,7 @@ class ProjectsPage extends React.Component {
                 {
                     (() => {
                         if (this.state.showProjectInfo && this.state.selectedProject != null) {
-                            return (<ProjectComponent project={this.state.selectedProject} lessInfo={this.hideProjectDetailsPopup.bind(this)}/>);
+                            return (<ProjectComponent cuteBaozi={this.cute.bind(this)} project={this.state.selectedProject} lessInfo={this.hideProjectDetailsPopup.bind(this)}/>);
                         }
                     })()
                 }
@@ -233,10 +237,6 @@ const projectContainer = {
     flexDirection: 'column',
     justifyContent: 'center',
     marginTop: '5em'
-}
-
-const popUpProjectStyle = {
-    position: 'fixed'
 }
 
 const danguinStyle = {

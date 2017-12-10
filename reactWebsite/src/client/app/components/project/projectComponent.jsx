@@ -27,6 +27,17 @@ class ProjectComponent extends React.Component {
         this.setState({width: window.innerWidth});
     }
 
+    onClicked(event) {
+        console.log(event.target.className)
+
+        const divClassName = event.target.className;
+        if (divClassName == 'projectComponentContainer' ||
+            divClassName == 'projectComponentInnerContainer') {
+                this.props.lessInfo()
+                this.props.cuteBaozi()
+            }
+    }
+
     render() {
         let title = this.props.project.title;
         let date = this.props.project.date;
@@ -71,7 +82,7 @@ class ProjectComponent extends React.Component {
                 bottom: '0',
                 marginTop: '3em',
                 width: '100%',
-                height: '100%'
+                height: '100%',
             }
             cardContainer = {
                 position: 'relative',
@@ -91,7 +102,7 @@ class ProjectComponent extends React.Component {
                 marginRight: '1em',
                 marginTop: '3em',
                 width: '100%',
-                height: '100%'
+                height: '100%',
             }
             cardContainer = {
                 position: 'relative',
@@ -102,40 +113,32 @@ class ProjectComponent extends React.Component {
             }
         }
 
-        return (<div className='header' style={container}>
-            <div className='innerContainer' style={innerContainer}>
+        return (<div className='projectComponentContainer' style={container} onClick={this.onClicked.bind(this)}>
+            <div className='projectComponentInnerContainer' style={innerContainer}>
+                {/* <Card className='card' overLevel={5} outLevel={1} style={cardContainer}> */}
                 <Card className='card' overLevel={5} outLevel={1} style={cardContainer}>
+                    <div className='cardDiv' style={cardFlexContainer}>
+                        <img src={escapeIcon} style={escapeIconStyle} onClick={this.props.lessInfo}/>
+                        <div style={textContainer}>
+                            <h2 style={titleStyle}>{title}</h2>
+                            <div style={notesContainer}>
+                                <p style={dateStyle}>{date}</p>
+                                <p style={noteStyle}>{type}</p>
+                                {awardsToDisplay}
+                            </div>
+                            <p style={descriptionStyle}>{description}</p>
+                            <div style={linkContainer}>
+                                {githubLink}
+                                {playStore}
+                                {devPost}
+                                {website}
+                            </div>
+                            <ProjectTags tags={tags}/>
+                        </div>
+                    </div>
                     {/* <div style={imageContainer}>
                         <img src={image} style={imageStyle}/>
-                        </div> */
-                    }
-                    <div className='backgroundImageDiv' style={Object.assign({
-                        backgroundImage: `url(${image})`,
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        backgroundSize: '50%',
-                        opacity: 0.2
-                    }, cardFlexContainer)}/>
-
-                    <img src={escapeIcon} style={escapeIconStyle} onClick={this.props.lessInfo}/>
-
-                    <div style={textContainer}>
-                        <h2 style={titleStyle}>{title}</h2>
-                        <div style={notesContainer}>
-                            <p style={dateStyle}>{date}</p>
-                            <p style={noteStyle}>{type}</p>
-                            {awardsToDisplay}
-                        </div>
-                        <p style={descriptionStyle}>{description}</p>
-                        <div style={linkContainer}>
-                            {githubLink}
-                            {playStore}
-                            {devPost}
-                            {website}
-                        </div>
-                        <ProjectTags tags={tags}/>
-                    </div>
-
+                    </div> */}
                 </Card>
             </div>
         </div>);
@@ -174,9 +177,10 @@ const innerContainer = {
     justifyContent: 'center'
 };
 const cardFlexContainer = {
-    position: 'absolute',
-    width: '100%',
-    height: '100%'
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#fff'
 }
 
 const imageContainer = {
@@ -184,13 +188,13 @@ const imageContainer = {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    backgroundColor: '#8C9EFF'
+    height: '100%'
 }
 const imageStyle = {
     alignSelf: 'center',
     maxHeight: '10em',
-    width: '100%',
-    height: '100%',
+    width: '50%',
+    height: '50%',
     opacity: 0.2
 }
 

@@ -13,15 +13,18 @@ class NavBarComponent extends React.Component {
     }
 
     hideBar(){
-        console.log('hide bar')
-        console.log(this.state.isHide)
-        console.log(window.scrollY)
-        // console.log('this state' + this.state)
+        // As you scroll down, scrollY will be higher
         let hidden = this.state.isHide
-        window.scrollY > this.prev ?
-        !hidden && this.setState({isHide:true})
-        :
-        hidden && this.setState({isHide:false})
+        if (window.scrollY > this.prev && !hidden) {
+            // Scrolling down, and not hidden
+            // Hide the navbar
+            this.setState({isHide: true});
+            // TODO animation
+        } else if (window.scrollY < this.prev && hidden) {
+            // Scrolling up, and hidden
+            // Show the navbar
+            this.show();
+        }
 
         this.prev = window.scrollY;
     }
@@ -32,6 +35,11 @@ class NavBarComponent extends React.Component {
 
     componentWillUnmount(){
          window.removeEventListener('scroll',this.hideBar);
+    }
+
+    show() {
+        // TODO animation
+        this.setState({isHide: false});
     }
 
     render () {
