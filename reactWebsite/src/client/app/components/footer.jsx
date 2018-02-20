@@ -7,7 +7,7 @@ class Footer extends React.Component {
       let school = 'University of Waterloo';
       let location = 'Montreal, QC';
       let email = 'dougouk@gmail.com';
-      let copyright = 'Copyright © Dongoug Kim 2017';
+      let copyright = 'Copyright © Dongoug Kim 2018';
 
       let contactLinks = [
           {
