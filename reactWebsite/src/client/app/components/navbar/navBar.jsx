@@ -84,7 +84,6 @@ class NavBarComponent extends React.Component {
       }
 
   getButton(props, index) {
-      console.log(props.routerLink);
       return (
             <Link to={props.routerLink}
                 style={buttonStyle}

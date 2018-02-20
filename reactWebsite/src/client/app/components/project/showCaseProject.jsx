@@ -15,12 +15,12 @@ class ShowCaseProject extends React.Component {
     }
 
     componentWillMount() {
-        console.log('componentWillMount');
+        console.log('showcaseproject componentWillMount');
         window.addEventListener('resize', this.handleWindowChange);
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount');
+        console.log('showcaseproject componentWillUnmount');
         window.removeEventListener('resize', this.handleWindowChange);
     }
 

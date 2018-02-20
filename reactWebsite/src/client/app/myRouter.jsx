@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import MainPage from './mainPage.jsx';
 import ProjectsPage from './projectsPage.jsx';
 import AboutPage from './aboutPage.jsx';
@@ -12,11 +13,19 @@ class MyRouter extends React.Component {
         return (
             <div>
                 <NavBarComponent style={navBarStyle}/>
-                <Switch>
-                    <Route exact path='/' component={MainPage}/>
-                    <Route path='/projects' component={ProjectsPage}/>
-                    <Route path='/about' component={AboutPage}/>
-                </Switch>
+                {/* <TransitionGroup>                
+                    <CSSTransition 
+                    key={this.props.location.pathname} 
+                    timeout={{enter: 500, exit: 500}} 
+                    classNames="example" > */}
+                        <Switch>
+                            <Route exact path='/' component={MainPage}/>
+                            <Route path='/projects' component={ProjectsPage}/>
+                            <Route path='/about' component={AboutPage}/>
+                        </Switch>
+                    {/* </CSSTransition> */}
+                {/* </TransitionGroup> */}
+
             </div>
         );
     }
@@ -26,4 +35,4 @@ const navBarStyle = {
     marginTop: 'auto'
 };
 
-export default MyRouter;
+export default withRouter(MyRouter);
