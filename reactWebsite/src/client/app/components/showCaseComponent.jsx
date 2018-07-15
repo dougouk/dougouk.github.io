@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Dext from './reuse/Dext.jsx';
 import {Link} from 'react-router-dom';
+import styles from './reuse/animations.css';
 
 class ShowCaseComponent extends React.Component {
     constructor(props) {
@@ -176,25 +177,27 @@ class ShowCaseComponent extends React.Component {
                 height: '50%'
             }
 
-            return (<div id="home" style={mainContainer}>
-                <div style={textDiv}>
-                    <Dext inputStyle={titleStyle}>
-                        {title}
-                    </Dext>
-                    <Dext inputStyle={descriptionStyle}>
-                        {description}
-                    </Dext>
-
-                    <Link to={link} style={buttonStyle}>
-                        <Dext>
-                            {buttonText}
+            return (
+                <div className={styles.header} id='yoyo' style={mainContainer}>
+                    <div style={textDiv}>
+                        <Dext inputStyle={titleStyle}>
+                            {title}
                         </Dext>
-                    </Link>
+                        <Dext inputStyle={descriptionStyle}>
+                            {description}
+                        </Dext>
+
+                        <Link to={link} style={buttonStyle}>
+                            <Dext>
+                                {buttonText}
+                            </Dext>
+                        </Link>
+                    </div>
+                    <div style={imageDiv}>
+                        <img src={imageSrc} style={imageStyle}/>
+                    </div>
                 </div>
-                <div style={imageDiv}>
-                    <img src={imageSrc} style={imageStyle}/>
-                </div>
-            </div>);
+            );
         }
 
     }

@@ -5,8 +5,8 @@ import Header from './components/header.jsx';
 import ProjectComponent from './components/project/projectDetail/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
 import ShowCaseProject from './components/project/showCaseProject.jsx';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './components/reuse/animations.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 
 const projects = [
     {
@@ -205,22 +205,15 @@ class ProjectsPage extends React.Component {
     render() {
 
         const items = this.state.projects.map((project, index) => {
-            const backgroundColor = index % 2 == 0
-                ? '#fff'
-                : project.color;
+            const backgroundColor = index % 2 == 0 ? '#fff' : project.color;
             return (
-                <CSSTransition
-                    key={index}
-                    classNames="example"
-                    timeout={{ enter: 500, exit: 250 }}>
-                    <ShowCaseProject 
-                        key={index} 
-                        project={project} 
-                        color={backgroundColor} 
-                        textColor={textColors[index % textColors.length]} 
-                        buttonText='SEE MORE' 
-                        moreInfo={this.showProjectDetailsPopup.bind(this)}/>
-                </CSSTransition>
+                <ShowCaseProject 
+                    key={index} 
+                    project={project} 
+                    color={backgroundColor} 
+                    textColor={textColors[index % textColors.length]} 
+                    buttonText='SEE MORE' 
+                    moreInfo={this.showProjectDetailsPopup.bind(this)}/>
             )
         });
 
@@ -230,9 +223,14 @@ class ProjectsPage extends React.Component {
                     <div id='projects' style={Object.assign({
                             opacity: this.state.projectOpacity
                     }, projectContainer)}>
-                        <TransitionGroup>
-                            {items}
-                        </TransitionGroup>
+                        <ReactCSSTransitionGroup
+                             transitionName="example"
+                             transitionEnterTimeout={500}
+                             transitionLeaveTimeout={300}
+                             transitionAppear={true}
+                             transitionAppearTimeout={500}>
+                                {items}
+                        </ReactCSSTransitionGroup>
                     </div>
 
                     <div style={danguinStyle}/>

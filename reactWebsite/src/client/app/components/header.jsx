@@ -43,14 +43,14 @@ class Header extends React.Component {
     render() {
         let name = 'Dan Kim';
         let description = ['Learner', 'Creator', 'Developer'];
-        return (<div id="home" style={mainContainer}>
+        return (
             <div style={headerContainer}>
                 <h1 style={titleStyle}>{name}</h1>
                 <TypeWriter typing={this.state.typing} onTypingEnd={this.loopTyping.bind(this)}>
                     <h3 style={descriptionStyle}>{description[this.state.description]}</h3>
                 </TypeWriter>
             </div>
-        </div>);
+        );
     }
 }
 
@@ -84,7 +84,8 @@ const descriptionStyle = {
     fontSize: '3em',
     fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
     color: '#2979FF',
-    marginTop: '1em'
+    marginTop: '1em',
+    minHeight: '1.25em'
 };
 
 export default Header;
