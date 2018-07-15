@@ -2,9 +2,11 @@ import React from 'react';
 import {render} from 'react-dom';
 import Resize from 'react-resize';
 import Header from './components/header.jsx';
-import ProjectComponent from './components/project/ProjectComponent.jsx';
+import ProjectComponent from './components/project/projectDetail/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
-import ShowCaseProject from './components/showCaseProject.jsx';
+import ShowCaseProject from './components/project/showCaseProject.jsx';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import './components/reuse/animations.css';
 
 const projects = [
     {
@@ -168,22 +170,29 @@ class ProjectsPage extends React.Component {
         super(props);
 
         // Start at top of page
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
         this.state = {
             selectedProject: null,
             showProjectInfo: false,
             projectOpacity: 1,
-            pointerEvents: 'auto'
+            pointerEvents: 'auto',
+            projects: projects
         }
+    }
+    
+    componentWillMount() {
+        console.log('Project Page componentWillMount')
+    }
+
+    componentWillUnmount() {
+        console.log('Project Page componentWillUnmount')        
     }
 
     showProjectDetailsPopup(project) {
-        console.log('show project');
         this.setState({selectedProject: project, showProjectInfo: true, projectOpacity: 0.3, pointerEvents: 'none'})
     }
 
     hideProjectDetailsPopup(event) {
-        console.log('hide project');
         if (this.state.showProjectInfo) {
             this.setState({showProjectInfo: false, projectOpacity: 1, pointerEvents: 'auto'})
         }
@@ -194,20 +203,36 @@ class ProjectsPage extends React.Component {
     }
 
     render() {
+
+        const items = this.state.projects.map((project, index) => {
+            const backgroundColor = index % 2 == 0
+                ? '#fff'
+                : project.color;
+            return (
+                <CSSTransition
+                    key={index}
+                    classNames="example"
+                    timeout={{ enter: 500, exit: 250 }}>
+                    <ShowCaseProject 
+                        key={index} 
+                        project={project} 
+                        color={backgroundColor} 
+                        textColor={textColors[index % textColors.length]} 
+                        buttonText='SEE MORE' 
+                        moreInfo={this.showProjectDetailsPopup.bind(this)}/>
+                </CSSTransition>
+            )
+        });
+
         return (<div style={container}>
             <Resize>
                 <div onClick={this.hideProjectDetailsPopup.bind(this)}>
                     <div id='projects' style={Object.assign({
                             opacity: this.state.projectOpacity
                     }, projectContainer)}>
-                        {
-                            projects.map((project, index) => {
-                                const backgroundColor = index % 2 == 0
-                                    ? '#fff'
-                                    : project.color;
-                                return <ShowCaseProject key={index} project={project} color={backgroundColor} textColor={textColors[index % textColors.length]} buttonText='SEE MORE' moreInfo={this.showProjectDetailsPopup.bind(this)}/>
-                            })
-                        };
+                        <TransitionGroup>
+                            {items}
+                        </TransitionGroup>
                     </div>
 
                     <div style={danguinStyle}/>
@@ -216,7 +241,13 @@ class ProjectsPage extends React.Component {
                 {
                     (() => {
                         if (this.state.showProjectInfo && this.state.selectedProject != null) {
-                            return (<ProjectComponent cuteBaozi={this.cute.bind(this)} project={this.state.selectedProject} lessInfo={this.hideProjectDetailsPopup.bind(this)}/>);
+                            return (
+                                <ProjectComponent 
+                                    key={this.state.selectedProject.title} 
+                                    cuteBaozi={this.cute.bind(this)} 
+                                    project={this.state.selectedProject} 
+                                    lessInfo={this.hideProjectDetailsPopup.bind(this)}/>
+                            );
                         }
                     })()
                 }

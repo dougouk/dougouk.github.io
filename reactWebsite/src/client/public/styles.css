@@ -1,0 +1,47 @@
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-exit {
+  opacity: 1;
+}
+
+.example-exit.example-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+.example-component {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden; 
+}
+.example-component.show {
+    opacity: 1;
+    visibility: visible; 
+}
+
+.app-transition-appear {
+  opacity: 0;
+  background-color: antiquewhite;
+}
+
+.app-transition-appear.app-transition-appear-active {
+  opacity: 1;
+  background-color: aqua;
+  transition: all .75s ease;
+}
+
+.header {
+  background-color: black;
+}

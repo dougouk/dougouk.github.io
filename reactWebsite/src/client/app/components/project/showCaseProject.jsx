@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Dext from './reuse/Dext.jsx';
+import Dext from '../reuse/Dext.jsx';
 import {Link} from 'react-router-dom';
 
 class ShowCaseProject extends React.Component {
@@ -15,10 +15,12 @@ class ShowCaseProject extends React.Component {
     }
 
     componentWillMount() {
+        console.log('showcaseproject componentWillMount');
         window.addEventListener('resize', this.handleWindowChange);
     }
 
     componentWillUnmount() {
+        console.log('showcaseproject componentWillUnmount');
         window.removeEventListener('resize', this.handleWindowChange);
     }
 

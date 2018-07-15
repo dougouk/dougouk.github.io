@@ -1,10 +1,11 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Resize from 'react-resize';
-import AwesomeComponent from './components/AwesomeComponent.jsx';
 import Header from './components/header.jsx';
 import ShowCaseComponent from './components/showCaseComponent.jsx';
 import Footer from './components/footer.jsx';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import './components/reuse/animations.css';
 
 const lightBlue = '#87b4ff';
 const darkBlue = '#2979FF';
@@ -43,19 +44,40 @@ class MainPage extends React.Component {
         window.scrollTo(0, 0);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.visible !== this.props.visible) {
+          if (nextProps.visible) {
+              $(findDOMNode(this)).stop( true, true ).fadeIn('slow');
+          } else {
+              $(findDOMNode(this)).stop( true, true ).fadeOut('slow');
+          }
+        }
+      }
+
     render() {
+        const items = showcases.map((showcase, index) =>(
+            // <CSSTransition
+            //     key={index}
+            //     classNames="example"
+            //     timeout = {{ enter:500, exit: 300}} >
+                <ShowCaseComponent
+                                key={index}
+                                color={showcase.color}
+                                title={showcase.title}
+                                description={showcase.description}
+                                buttonText={showcase.buttonText}
+                                link={showcase.link}
+                                imageSrc={showcase.imageSrc}/>
+            // </CSSTransition>
+            ));
+
         return (<div style={container}>
             <Resize>
-                <Header/> {showcases.map((showcase, index) =>
-                    <ShowCaseComponent
-                        key={index}
-                        color={showcase.color}
-                        title={showcase.title}
-                        description={showcase.description}
-                        buttonText={showcase.buttonText}
-                        link={showcase.link}
-                        imageSrc={showcase.imageSrc}/>)}
-                <div style={danguinStyle}/>
+                <Header/>
+                {/* <TransitionGroup> */}
+                    {items}
+                {/* </TransitionGroup> */}
+                    <div style={danguinStyle}/>
                 <Footer/>
             </Resize>
         </div>);

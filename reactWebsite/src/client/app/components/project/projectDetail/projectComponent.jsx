@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Card from 'react-material-card';
 import ProjectTags from './projectTags.jsx';
-import Dext from '../reuse/Dext.jsx';
+import Dext from '../../reuse/Dext.jsx';
 
 class ProjectComponent extends React.Component {
     constructor(props) {
@@ -16,6 +16,7 @@ class ProjectComponent extends React.Component {
     }
 
     componentWillMount() {
+        console.log('project component componentWillMount');
         window.addEventListener('resize', this.handleWindowChange);
     }
 
@@ -34,7 +35,6 @@ class ProjectComponent extends React.Component {
         if (divClassName == 'projectComponentContainer' ||
             divClassName == 'projectComponentInnerContainer') {
                 this.props.lessInfo()
-                this.props.cuteBaozi()
             }
     }
 
@@ -67,7 +67,7 @@ class ProjectComponent extends React.Component {
             </p>);
         };
 
-        let escapeIcon = require('../../images/cross.png');
+        let escapeIcon = require('../../../images/cross.png');
 
         const isMobile = this.state.width <= 500;
         var container;
@@ -158,13 +158,13 @@ class ProjectComponent extends React.Component {
 
     getDevpostLink(link, name) {
         return (<a href={link} style={buttonStyle} target="_blank">
-            <img src={require('../../images/devpost.png')}/>
+            <img src={require('../../../images/devpost.png')}/>
         </a>);
     }
 
     getWebsiteLink(link, name) {
         return (<a href={link} style={buttonStyle} target="_blank">
-            <img src={require('../../images/website.png')}/>
+            <img src={require('../../../images/website.png')}/>
         </a>);
     }
 

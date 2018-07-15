@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Dext from '../reuse/Dext.jsx';
+import Dext from '../../reuse/Dext.jsx';
 
 class ProjectTags extends React.Component {
     constructor(props){
