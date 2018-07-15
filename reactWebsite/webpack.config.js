@@ -1,14 +1,11 @@
-var webpack = require('webpack');
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var combineLoaders = require('webpack-combine-loaders');
 
 var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
 var APP_DIR = path.resolve(__dirname, 'src/client/app');
 
 var config = {
     entry: APP_DIR + '/root.jsx',
-    plugins: [new ExtractTextPlugin('styles.css')],
+    // plugins: [new ExtractTextPlugin('styles.css')],
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js'
@@ -26,9 +23,9 @@ var config = {
             },
 
             // Load CSS
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({use: 'css-loader', fallback: 'style-loader'})
+            { 
+                test: /\.css$/, 
+                loader: "style-loader!css-loader" 
             },
 
             // Load images

@@ -8,7 +8,7 @@ class ShowCaseProject extends React.Component {
         super(props);
 
         this.state = {
-            width: window.innerWidth
+            width: window.innerWidth,
         };
 
         this.handleWindowChange = this.handleWindowChange.bind(this);
@@ -18,6 +18,7 @@ class ShowCaseProject extends React.Component {
         console.log('showcaseproject componentWillMount');
         window.addEventListener('resize', this.handleWindowChange);
     }
+
 
     componentWillUnmount() {
         console.log('showcaseproject componentWillUnmount');
@@ -47,7 +48,7 @@ class ShowCaseProject extends React.Component {
         const isMobile = width <= 500;
 
         if (isMobile) {
-            const mainContainer = {
+            const mainContainerStyle = {
                 margin: '0',
                 padding: '0',
                 width: '100%',
@@ -111,33 +112,35 @@ class ShowCaseProject extends React.Component {
                 height: '40%'
             }
 
-            return (<div id="home" style={mainContainer}>
-                <div style={imageDiv}>
-                    <img src={imageSrc} style={imageStyle}/>
-                </div>
-                <div style={textDiv}>
-                    <Dext inputStyle={titleStyle}>
-                        {title}
-                    </Dext>
-                    <Dext inputStyle={descriptionStyle}>
-                        {description}
-                    </Dext>
-
-                    <a href='javascript:void(0)' onClick={this.showProjectInfo.bind(this)} style={buttonStyle}>
-                        <Dext>
-                            {buttonText}
+            return (
+                <div style={mainContainerStyle}>
+                    <div style={imageDiv}>
+                        <img src={imageSrc} style={imageStyle}/>
+                    </div>
+                    <div style={textDiv}>
+                        <Dext inputStyle={titleStyle}>
+                            {title}
                         </Dext>
-                    </a>
+                        <Dext inputStyle={descriptionStyle}>
+                            {description}
+                        </Dext>
+
+                        <a href='javascript:void(0)' onClick={this.showProjectInfo.bind(this)} style={buttonStyle}>
+                            <Dext>
+                                {buttonText}
+                            </Dext>
+                        </a>
+                    </div>
                 </div>
-            </div>);
+            );
         } else {
-            const mainContainer = {
+            const mainContainerStyle = {
                 margin: '0',
                 padding: '0',
                 width: '100%',
                 height: '100%',
                 display: 'flex',
-                backgroundColor: this.props.color
+                backgroundColor: this.props.color,
             };
 
             const titleStyle = {
@@ -189,25 +192,27 @@ class ShowCaseProject extends React.Component {
                 height: '50%'
             }
 
-            return (<div id="home" style={mainContainer}>
-                <div style={textDiv}>
-                    <Dext inputStyle={titleStyle}>
-                        {title}
-                    </Dext>
-                    <Dext inputStyle={descriptionStyle}>
-                        {description}
-                    </Dext>
-
-                    <a href='javascript:void(0)' onClick={this.showProjectInfo.bind(this)} style={buttonStyle}>
-                        <Dext>
-                            {buttonText}
+            return (
+                <div style={mainContainerStyle}>
+                    <div style={textDiv}>
+                        <Dext inputStyle={titleStyle}>
+                            {title}
                         </Dext>
-                    </a>
+                        <Dext inputStyle={descriptionStyle}>
+                            {description}
+                        </Dext>
+
+                        <a href='javascript:void(0)' onClick={this.showProjectInfo.bind(this)} style={buttonStyle}>
+                            <Dext>
+                                {buttonText}
+                            </Dext>
+                        </a>
+                    </div>
+                    <div style={imageDiv}>
+                        <img src={imageSrc} style={imageStyle}/>
+                    </div>
                 </div>
-                <div style={imageDiv}>
-                    <img src={imageSrc} style={imageStyle}/>
-                </div>
-            </div>);
+            );
         }
     }
 }

@@ -4,7 +4,7 @@ import Resize from 'react-resize';
 import Header from './components/header.jsx';
 import ShowCaseComponent from './components/showCaseComponent.jsx';
 import Footer from './components/footer.jsx';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import './components/reuse/animations.css';
 
 const lightBlue = '#87b4ff';
@@ -56,10 +56,6 @@ class MainPage extends React.Component {
 
     render() {
         const items = showcases.map((showcase, index) =>(
-            // <CSSTransition
-            //     key={index}
-            //     classNames="example"
-            //     timeout = {{ enter:500, exit: 300}} >
                 <ShowCaseComponent
                                 key={index}
                                 color={showcase.color}
@@ -68,16 +64,20 @@ class MainPage extends React.Component {
                                 buttonText={showcase.buttonText}
                                 link={showcase.link}
                                 imageSrc={showcase.imageSrc}/>
-            // </CSSTransition>
             ));
 
         return (<div style={container}>
             <Resize>
-                <Header/>
-                {/* <TransitionGroup> */}
+                <ReactCSSTransitionGroup
+                             transitionName="example"
+                             transitionEnterTimeout={500}
+                             transitionLeaveTimeout={300}
+                             transitionAppear={true}
+                             transitionAppearTimeout={500}>
+                    <Header/>
                     {items}
-                {/* </TransitionGroup> */}
-                    <div style={danguinStyle}/>
+                </ReactCSSTransitionGroup>
+                <div style={danguinStyle}/>
                 <Footer/>
             </Resize>
         </div>);
