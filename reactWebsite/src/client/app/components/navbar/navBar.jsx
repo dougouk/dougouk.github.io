@@ -72,15 +72,10 @@ class NavBarComponent extends React.Component {
         if (!this.state.isHide) {
             return (
                     <TransitionGroup style={container}>
-                        <CSSTransition
-                            key={'navBar'}
-                            classNames='navBar'
-                            timeout={300}
-                            appear={true}>
+                        
                             {contactLinks.map((contact, index) =>
                                 this.getButton(contact, index)
                             )};
-                        </CSSTransition>
                     </TransitionGroup>
             );
         } else {
@@ -91,6 +86,11 @@ class NavBarComponent extends React.Component {
 
   getButton(props, index) {
       return (
+        <CSSTransition
+            key={'navBar'}
+            classNames='navBar'
+            timeout={300}
+            appear={true}>
             <Link to={props.routerLink}
                 style={buttonStyle}
                 key={index}>
@@ -106,6 +106,7 @@ class NavBarComponent extends React.Component {
                 </div>
                 {/* </a> */}
             </Link>
+        </CSSTransition>
       )
   }
 
