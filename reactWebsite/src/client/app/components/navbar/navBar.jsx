@@ -69,13 +69,25 @@ class NavBarComponent extends React.Component {
             //     routerLink: '/'
             // }
         ];
+
+        let items = contactLinks.map((contact, index) =>
+            {
+                console.log(contact);
+                return this.getButton(contact, index);  
+            }
+        );
         if (!this.state.isHide) {
             return (
-                    <TransitionGroup style={container}>
-                        
-                            {contactLinks.map((contact, index) =>
-                                this.getButton(contact, index)
-                            )};
+                    <TransitionGroup>
+                        <CSSTransition
+                            key={'navBar'}
+                            classNames='navBar'
+                            timeout={300}
+                            appear={true}>
+                            <div style={container}>
+                                {items};
+                            </div>
+                        </CSSTransition>
                     </TransitionGroup>
             );
         } else {
@@ -86,27 +98,15 @@ class NavBarComponent extends React.Component {
 
   getButton(props, index) {
       return (
-        <CSSTransition
-            key={'navBar'}
-            classNames='navBar'
-            timeout={300}
-            appear={true}>
             <Link to={props.routerLink}
                 style={buttonStyle}
                 key={index}>
-                {/* <a href={props.link}
-                    style={buttonStyle}
-                    key={props.name}
-                    onMouseEnter={this.toggleHover}
-                onMouseLeave={this.toggleHover}> */}
                 <div style={buttonStyle}>
                     <Dext style={linkStyle}>
                         {props.name}
                     </Dext>
                 </div>
-                {/* </a> */}
             </Link>
-        </CSSTransition>
       )
   }
 
