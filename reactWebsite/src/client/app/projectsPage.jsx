@@ -6,7 +6,7 @@ import ProjectComponent from './components/project/projectDetail/ProjectComponen
 import Footer from './components/footer.jsx';
 import ShowCaseProject from './components/project/showCaseProject.jsx';
 import './components/reuse/animations.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+import { TransitionGroup, CSSTransition } from 'react-transition-group'; 
 
 const projects = [
     {
@@ -223,14 +223,9 @@ class ProjectsPage extends React.Component {
                     <div id='projects' style={Object.assign({
                             opacity: this.state.projectOpacity
                     }, projectContainer)}>
-                        <ReactCSSTransitionGroup
-                             transitionName="example"
-                             transitionEnterTimeout={500}
-                             transitionLeaveTimeout={300}
-                             transitionAppear={true}
-                             transitionAppearTimeout={500}>
+                        <TransitionGroup>
                                 {items}
-                        </ReactCSSTransitionGroup>
+                        </TransitionGroup>
                     </div>
 
                     <div style={danguinStyle}/>

@@ -4,8 +4,8 @@ import Resize from 'react-resize';
 import Header from './components/header.jsx';
 import ShowCaseComponent from './components/showCaseComponent.jsx';
 import Footer from './components/footer.jsx';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import './components/reuse/animations.css';
+import {TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const lightBlue = '#87b4ff';
 const darkBlue = '#2979FF';
@@ -56,6 +56,11 @@ class MainPage extends React.Component {
 
     render() {
         const items = showcases.map((showcase, index) =>(
+            <CSSTransition
+                key={index} 
+                classNames='example'
+                timeout = {300}
+                appear = {true}>
                 <ShowCaseComponent
                                 key={index}
                                 color={showcase.color}
@@ -64,19 +69,21 @@ class MainPage extends React.Component {
                                 buttonText={showcase.buttonText}
                                 link={showcase.link}
                                 imageSrc={showcase.imageSrc}/>
+            </CSSTransition>
             ));
 
         return (<div style={container}>
             <Resize>
-                <ReactCSSTransitionGroup
-                             transitionName="example"
-                             transitionEnterTimeout={500}
-                             transitionLeaveTimeout={300}
-                             transitionAppear={true}
-                             transitionAppearTimeout={500}>
-                    <Header/>
+                <TransitionGroup>
+                    <CSSTransition 
+                    key={name}
+                    classNames='example'
+                    timeout={300}
+                    appear={true}>
+                        <Header/>
+                    </CSSTransition>
                     {items}
-                </ReactCSSTransitionGroup>
+                </TransitionGroup>
                 <div style={danguinStyle}/>
                 <Footer/>
             </Resize>

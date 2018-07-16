@@ -1,8 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Card from 'react-material-card';
 import TypeWriter from 'react-typewriter';
-import NavBarComponent from './navbar/navBar.jsx';
+import { CSSTransition } from 'react-transition-group';
+import './reuse/animations.css';
+
 
 class Header extends React.Component {
     constructor(props) {
@@ -44,12 +45,12 @@ class Header extends React.Component {
         let name = 'Dan Kim';
         let description = ['Learner', 'Creator', 'Developer'];
         return (
-            <div style={headerContainer}>
-                <h1 style={titleStyle}>{name}</h1>
-                <TypeWriter typing={this.state.typing} onTypingEnd={this.loopTyping.bind(this)}>
-                    <h3 style={descriptionStyle}>{description[this.state.description]}</h3>
-                </TypeWriter>
-            </div>
+                <div style={headerContainer}>
+                    <h1 style={titleStyle}>{name}</h1>
+                    <TypeWriter typing={this.state.typing} onTypingEnd={this.loopTyping.bind(this)}>
+                        <h3 style={descriptionStyle}>{description[this.state.description]}</h3>
+                    </TypeWriter>
+                </div>
         );
     }
 }

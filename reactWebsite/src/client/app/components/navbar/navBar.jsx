@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Dext from '../reuse/Dext.jsx';
 import { Link } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class NavBarComponent extends React.Component {
     constructor(props){
@@ -70,12 +71,17 @@ class NavBarComponent extends React.Component {
         ];
         if (!this.state.isHide) {
             return (
-
-                    <div style={container}>
-                        {contactLinks.map((contact, index) =>
-                            this.getButton(contact, index)
-                        )};
-                    </div>
+                    <TransitionGroup style={container}>
+                        <CSSTransition
+                            key={'navBar'}
+                            classNames='navBar'
+                            timeout={300}
+                            appear={true}>
+                            {contactLinks.map((contact, index) =>
+                                this.getButton(contact, index)
+                            )};
+                        </CSSTransition>
+                    </TransitionGroup>
             );
         } else {
             return (<div></div>);

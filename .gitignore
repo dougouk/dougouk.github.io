@@ -2,3 +2,5 @@
 reactWebsite/node_modules/
 
 reactWebsite/package-lock\.json
+
+reactWebsite/npmlist\.txt
