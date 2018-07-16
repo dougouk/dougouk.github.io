@@ -7,33 +7,66 @@
   transition: opacity .5s ease-in;
 }
 
-.example-component {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
-    opacity: 0;
-    visibility: hidden; 
-}
-.example-component.show {
-    opacity: 1;
-    visibility: visible; 
-}
-
-.app-transition-appear {
+.introComponent-appear {
   opacity: 0;
-  background-color: antiquewhite;
 }
 
-.app-transition-appear.app-transition-appear-active {
+.introComponent-appear.introComponent-appear-active {
   opacity: 1;
-  background-color: aqua;
-  transition: all .75s ease;
+  transition: all .5s ease-in;
 }
 
-.header {
-  background-color: blanchedalmond;
+.componentImage-appear {
+  opacity: 0;
+  padding-top: 10em;
+}
+
+
+.componentImage-appear.componentImage-appear-active {
+  /* transform: translateY(-3em); */
+  opacity: 1;
+  padding-top: 0;
+  transition: all .7s ease-in;
+}
+
+.componentText-appear {
+  opacity: 0;
+  padding-top: 3em;
+}
+
+.componentText-appear.componentText-appear-active {
+  /* transform: translateY(-3em); */
+  opacity: 1;
+  padding-top: 0;
+  transition: all .7s ease-in;
+}
+
+.navBar-appear {
+  opacity: 0;
+}
+
+.navBar-appear.navBar-appear-active {
+  /* transform: translateY(-3em); */
+  opacity: 1;
+  transition: all .3s ease-in;
+}
+
+.navBar-enter {
+  opacity: 0;
+}
+
+.navBar-enter.navBar-enter-active {
+  /* transform: translateY(-3em); */
+  opacity: 1;
+  transition: all .3s ease-in;
+}
+
+.navBar-exit {
+  opacity: 1;
+}
+
+.navBar-exit.navBar-exit-active {
+  /* transform: translateY(-3em); */
+  opacity: 0;
+  transition: all .3s ease-in;
 }

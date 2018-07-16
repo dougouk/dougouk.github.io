@@ -60,7 +60,10 @@ class ProjectComponent extends React.Component {
 
         var awardsToDisplay;
         if (this.props.project.awards) {
-            awardsToDisplay = this.props.project.awards.map((award, index) => <p style={awardStyle}>
+            awardsToDisplay = this.props.project.awards.map((award, index) => 
+            <p  
+                key={index}
+                style={awardStyle}>
                 <Dext>
                     {award}
                 </Dext>

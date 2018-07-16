@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Dext from '../reuse/Dext.jsx';
-import {Link} from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import '../reuse/animations.css';
 
 class ShowCaseProject extends React.Component {
     constructor(props) {
@@ -184,7 +185,8 @@ class ShowCaseProject extends React.Component {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                height: '100%'
             }
 
             const imageStyle = {
@@ -194,10 +196,17 @@ class ShowCaseProject extends React.Component {
 
             return (
                 <div style={mainContainerStyle}>
-                    <div style={textDiv}>
+                    <TransitionGroup 
+                        style={textDiv}>
+                        <CSSTransition
+                            key={title}
+                            classNames='componentText'
+                            timeout={700}
+                            appear={true}>
                         <Dext inputStyle={titleStyle}>
                             {title}
                         </Dext>
+                        </CSSTransition>
                         <Dext inputStyle={descriptionStyle}>
                             {description}
                         </Dext>
@@ -207,10 +216,17 @@ class ShowCaseProject extends React.Component {
                                 {buttonText}
                             </Dext>
                         </a>
-                    </div>
-                    <div style={imageDiv}>
-                        <img src={imageSrc} style={imageStyle}/>
-                    </div>
+                    </TransitionGroup>
+                    <TransitionGroup
+                            style={imageDiv}>
+                        <CSSTransition
+                            key={imageSrc} 
+                            classNames='componentImage'
+                            timeout={700}
+                            appear={true}>
+                                <img src={imageSrc} style={imageStyle}/>
+                        </CSSTransition>
+                    </TransitionGroup>
                 </div>
             );
         }
