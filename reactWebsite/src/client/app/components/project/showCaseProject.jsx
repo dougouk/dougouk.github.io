@@ -36,6 +36,53 @@ class ShowCaseProject extends React.Component {
         this.props.moreInfo(this.props.project);
     }
 
+    renderShowCaseProject (mainContainerStyle, 
+                            textDiv, 
+                            title, 
+                            titleStyle, 
+                            description, 
+                            descriptionStyle,
+                            buttonText,
+                            buttonStyle,
+                            imageDiv,
+                            imageSrc,
+                            imageStyle) {
+        return (
+            <div style={mainContainerStyle}>
+                <TransitionGroup 
+                    style={textDiv}>
+                    <CSSTransition
+                        key={title}
+                        classNames='componentText'
+                        timeout={700}
+                        appear={true}>
+                    <Dext inputStyle={titleStyle}>
+                        {title}
+                    </Dext>
+                    </CSSTransition>
+                    <Dext inputStyle={descriptionStyle}>
+                        {description}
+                    </Dext>
+
+                    <a href='javascript:void(0)' onClick={this.showProjectInfo.bind(this)} style={buttonStyle}>
+                        <Dext>
+                            {buttonText}
+                        </Dext>
+                    </a>
+                </TransitionGroup>
+                <TransitionGroup
+                        style={imageDiv}>
+                    <CSSTransition
+                        key={imageSrc} 
+                        classNames='componentImage'
+                        timeout={700}
+                        appear={true}>
+                            <img src={imageSrc} style={imageStyle}/>
+                    </CSSTransition>
+                </TransitionGroup>
+            </div>);
+    }
+
     render() {
         let title = this.props.project.title;
         let description = this.props.project.shortDescription;
@@ -67,14 +114,16 @@ class ShowCaseProject extends React.Component {
                 fontSize: '3em',
                 fontWeight: 'bold',
                 color: this.props.textColor,
-                textAlign: 'center'
+                textAlign: 'center',
+                marginTop: '1em'
             }
             const descriptionStyle = {
                 flex: 1,
                 fontSize: '1.4em',
                 color: this.props.textColor,
                 marginTop: '1em',
-                textAlign: 'center'
+                textAlign: 'center',
+                padding: '0 1em' // top right bottom left
             }
             const buttonStyle = {
                 flex: 2,
@@ -113,27 +162,17 @@ class ShowCaseProject extends React.Component {
                 height: '40%'
             }
 
-            return (
-                <div style={mainContainerStyle}>
-                    <div style={imageDiv}>
-                        <img src={imageSrc} style={imageStyle}/>
-                    </div>
-                    <div style={textDiv}>
-                        <Dext inputStyle={titleStyle}>
-                            {title}
-                        </Dext>
-                        <Dext inputStyle={descriptionStyle}>
-                            {description}
-                        </Dext>
-
-                        <a href='javascript:void(0)' onClick={this.showProjectInfo.bind(this)} style={buttonStyle}>
-                            <Dext>
-                                {buttonText}
-                            </Dext>
-                        </a>
-                    </div>
-                </div>
-            );
+            return (this.renderShowCaseProject(mainContainerStyle, 
+                                                textDiv, 
+                                                title, 
+                                                titleStyle, 
+                                                description,
+                                                descriptionStyle, 
+                                                buttonText, 
+                                                buttonStyle, 
+                                                imageDiv, 
+                                                imageSrc, 
+                                                imageStyle));
         } else {
             const mainContainerStyle = {
                 margin: '0',
@@ -194,41 +233,17 @@ class ShowCaseProject extends React.Component {
                 height: '50%'
             }
 
-            return (
-                <div style={mainContainerStyle}>
-                    <TransitionGroup 
-                        style={textDiv}>
-                        <CSSTransition
-                            key={title}
-                            classNames='componentText'
-                            timeout={700}
-                            appear={true}>
-                        <Dext inputStyle={titleStyle}>
-                            {title}
-                        </Dext>
-                        </CSSTransition>
-                        <Dext inputStyle={descriptionStyle}>
-                            {description}
-                        </Dext>
-
-                        <a href='javascript:void(0)' onClick={this.showProjectInfo.bind(this)} style={buttonStyle}>
-                            <Dext>
-                                {buttonText}
-                            </Dext>
-                        </a>
-                    </TransitionGroup>
-                    <TransitionGroup
-                            style={imageDiv}>
-                        <CSSTransition
-                            key={imageSrc} 
-                            classNames='componentImage'
-                            timeout={700}
-                            appear={true}>
-                                <img src={imageSrc} style={imageStyle}/>
-                        </CSSTransition>
-                    </TransitionGroup>
-                </div>
-            );
+            return ( this.renderShowCaseProject(mainContainerStyle, 
+                                                textDiv, 
+                                                title, 
+                                                titleStyle, 
+                                                description,
+                                                descriptionStyle, 
+                                                buttonText, 
+                                                buttonStyle, 
+                                                imageDiv, 
+                                                imageSrc, 
+                                                imageStyle));
         }
     }
 }
