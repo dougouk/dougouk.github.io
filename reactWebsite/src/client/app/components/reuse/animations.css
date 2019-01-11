@@ -16,30 +16,6 @@
   transition: all .5s ease-in;
 }
 
-.componentImage-appear {
-  opacity: 0;
-  padding-top: 10em;
-}
-
-
-.componentImage-appear.componentImage-appear-active {
-  /* transform: translateY(-3em); */
-  opacity: 1;
-  padding-top: 0;
-  transition: all .7s ease-in;
-}
-
-.componentText-appear {
-  opacity: 0;
-  padding-top: 3em;
-}
-
-.componentText-appear.componentText-appear-active {
-  /* transform: translateY(-3em); */
-  opacity: 1;
-  padding-top: 0;
-  transition: all .7s ease-in;
-}
 
 .navBar-appear {
   opacity: 0;
@@ -66,6 +42,37 @@
 }
 
 .navBar-exit.navBar-exit-active {
+  /* transform: translateY(-3em); */
+  opacity: 0;
+  transition: all .3s ease-in;
+}
+
+
+.projectComponent-appear {
+  opacity: 0;
+}
+
+.projectComponent-appear.projectComponent-appear-active {
+  /* transform: translateY(-3em); */
+  opacity: 1;
+  transition: all .3s ease-in;
+}
+
+.projectComponent-enter {
+  opacity: 0;
+}
+
+.projectComponent-enter.projectComponent-enter-active {
+  /* transform: translateY(-3em); */
+  opacity: 1;
+  transition: all .3s ease-in;
+}
+
+.projectComponent-exit {
+  opacity: 1;
+}
+
+.projectComponent-exit.projectComponent-exit-active {
   /* transform: translateY(-3em); */
   opacity: 0;
   transition: all .3s ease-in;

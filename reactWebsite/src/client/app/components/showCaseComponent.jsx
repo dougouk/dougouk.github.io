@@ -2,7 +2,6 @@ import React from 'react';
 import {render} from 'react-dom';
 import Dext from './reuse/Dext.jsx';
 import {Link} from 'react-router-dom';
-import styles from './reuse/animations.css';
 
 class ShowCaseComponent extends React.Component {
     constructor(props) {
