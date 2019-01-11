@@ -2,7 +2,6 @@ import React from 'react';
 import {render} from 'react-dom';
 import TypeWriter from 'react-typewriter';
 import { CSSTransition } from 'react-transition-group';
-import './reuse/animations.css';
 
 
 class Header extends React.Component {

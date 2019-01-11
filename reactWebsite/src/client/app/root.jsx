@@ -5,7 +5,6 @@ import MyRouter from './myRouter.jsx';
 
 class Root extends React.Component {
     render () {
-        console.log('ROOT');
         return (
             <div>
                 <HashRouter>

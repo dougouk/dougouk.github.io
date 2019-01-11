@@ -4,9 +4,7 @@ import Resize from 'react-resize';
 import Header from './components/header.jsx';
 import ProjectComponent from './components/project/projectDetail/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
-import ShowCaseProject from './components/project/showCaseProject.jsx';
-import './components/reuse/animations.css';
-import { TransitionGroup, CSSTransition } from 'react-transition-group'; 
+import ShowCaseProject from './components/project/projectBlock/showCaseProject.jsx';
 
 const projects = [
     {
@@ -223,9 +221,7 @@ class ProjectsPage extends React.Component {
                     <div id='projects' style={Object.assign({
                             opacity: this.state.projectOpacity
                     }, projectContainer)}>
-                        <TransitionGroup>
-                                {items}
-                        </TransitionGroup>
+                        {items}
                     </div>
 
                     <div style={danguinStyle}/>

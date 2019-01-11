@@ -4,7 +4,6 @@ import Resize from 'react-resize';
 import Header from './components/header.jsx';
 import ShowCaseComponent from './components/showCaseComponent.jsx';
 import Footer from './components/footer.jsx';
-import './components/reuse/animations.css';
 import {TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const lightBlue = '#87b4ff';
