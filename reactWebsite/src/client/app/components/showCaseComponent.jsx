@@ -43,77 +43,19 @@ class ShowCaseComponent extends React.Component {
         let imageSrc = this.props.imageSrc;
 
         if(isMobile) {
-            const mainContainer = {
-                margin: '0',
-                padding: '0',
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: this.props.color,
-                paddingTop: '1em',
-                paddingBottom: '1em',
-                transition: '500ms ease-in'
-            };
-            const imageDiv = {
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }
-
-            const textDiv = {
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                textAlign: 'center'
-            }
-
-            const titleStyle = {
-                fontSize: '4em',
-                fontWeight: 'bold',
-                color: '#fff'
-            }
-            const descriptionStyle = {
-                fontSize: '1.4em',
-                color: '#fff',
-                marginTop: '1em',
-                marginBottom: '3em'
-            }
-            const buttonStyle = {
-                flex: 2,
-                display: 'flex',
-                width: '60%',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                textDecoration: 'none',
-                color: '#fff',
-                borderStyle: 'solid',
-                borderColor: '#fff',
-            }
-            const imageStyle = {
-                width: '50%',
-                height: '50%'
-            }
-
-            return (<div id="home" style={mainContainer}>
-                <div style={imageDiv}>
-                    <img src={imageSrc} style={imageStyle}/>
+            return (<div id={this.props.title} style={mainContainerMobile}>
+                <div style={imageDivMobile}>
+                    <img src={imageSrc} style={imageStyleMobile}/>
                 </div>
-                <div style={textDiv}>
-                    <Dext inputStyle={titleStyle}>
+                <div style={textDivMobile}>
+                    <Dext inputStyle={titleStyleMobile}>
                         {title}
                     </Dext>
-                    <Dext inputStyle={descriptionStyle}>
+                    <Dext inputStyle={descriptionStyleMobile}>
                         {description}
                     </Dext>
 
-                    <Link to={link} style={buttonStyle}>
+                    <Link to={link} style={buttonStyleMobile}>
                         <Dext>
                             {buttonText}
                         </Dext>
@@ -122,79 +64,30 @@ class ShowCaseComponent extends React.Component {
 
             </div>);
         } else {
-            const mainContainer = {
-                margin: '0',
-                padding: '0',
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                backgroundColor: this.props.color
-            };
-
-            const textDiv = {
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
-                paddingLeft: '4em'
-            }
-
-            const imageDiv = {
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }
-            const titleStyle = {
-                fontSize: '4em',
-                fontWeight: 'bold',
-                color: '#fff'
-            }
-            const descriptionStyle = {
-                fontSize: '1.4em',
-                color: '#fff',
-                marginTop: '4em',
-                marginBottom: '3em'
-            }
-            const buttonStyle = {
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                height: '5em',
-                textDecoration: 'none',
-                color: '#fff',
-                borderStyle: 'solid',
-                borderColor: '#fff',
-                paddingTop: '1em',
-                paddingBottom: '1em',
-                paddingLeft: '3em',
-                paddingRight: '3em'
-            }
-            const imageStyle = {
-                width: '50%',
-                height: '50%'
-            }
 
             return (
-                <div className={styles.header} id='yoyo' style={mainContainer}>
-                    <div style={textDiv}>
-                        <Dext inputStyle={titleStyle}>
+                <div className={styles.header} 
+                id={this.props.title} 
+                style={Object.assign({
+                    backgroundColor: this.props.color
+                    }, mainContainerDesktop)}>
+
+                    <div style={textDivDesktop}>
+                        <Dext inputStyle={titleStyleDesktop}>
                             {title}
                         </Dext>
-                        <Dext inputStyle={descriptionStyle}>
+                        <Dext inputStyle={descriptionStyleDesktop}>
                             {description}
                         </Dext>
 
-                        <Link to={link} style={buttonStyle}>
+                        <Link to={link} style={buttonStyleDesktop}>
                             <Dext>
                                 {buttonText}
                             </Dext>
                         </Link>
                     </div>
-                    <div style={imageDiv}>
-                        <img src={imageSrc} style={imageStyle}/>
+                    <div style={imageDivDesktop}>
+                        <img src={imageSrc} style={imageStyleDesktop}/>
                     </div>
                 </div>
             );
@@ -204,5 +97,120 @@ class ShowCaseComponent extends React.Component {
 }
 
 
+// Desktop styles.
+const mainContainerDesktop = {
+    // background: 'url("./reactWebsite/src/client/app/images/grad.jpg") no-repeat center center scroll',
+    // backgroundSize: 'cover',
+    margin: '0',
+    padding: '0',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    
+};
+
+const textDivDesktop = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingLeft: '4em'
+}
+
+const imageDivDesktop = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+}
+const titleStyleDesktop = {
+    fontSize: '4em',
+    fontWeight: 'bold',
+    color: '#fff'
+}
+const descriptionStyleDesktop = {
+    fontSize: '1.4em',
+    color: '#fff',
+    marginTop: '4em',
+    marginBottom: '3em'
+}
+const buttonStyleDesktop = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    height: '5em',
+    textDecoration: 'none',
+    color: '#fff',
+    borderStyle: 'solid',
+    borderColor: '#fff',
+    paddingTop: '1em',
+    paddingBottom: '1em',
+    paddingLeft: '3em',
+    paddingRight: '3em'
+}
+const imageStyleDesktop = {
+    width: '50%',
+    height: '50%'
+}
+
+// Mobile styles.
+const mainContainerMobile = {
+    margin: '0',
+    padding: '0',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: '1em',
+    paddingBottom: '1em',
+    transition: '500ms ease-in'
+};
+const imageDivMobile = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+}
+
+const textDivMobile = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
+}
+
+const titleStyleMobile = {
+    fontSize: '4em',
+    fontWeight: 'bold',
+    color: '#fff'
+}
+const descriptionStyleMobile = {
+    fontSize: '1.4em',
+    color: '#fff',
+    marginTop: '1em',
+    marginBottom: '3em'
+}
+const buttonStyleMobile = {
+    flex: 2,
+    display: 'flex',
+    width: '60%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textDecoration: 'none',
+    color: '#fff',
+    borderStyle: 'solid',
+    borderColor: '#fff',
+}
+const imageStyleMobile = {
+    width: '50%',
+    height: '50%'
+}
 
 export default ShowCaseComponent;

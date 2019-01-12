@@ -1,0 +1,17 @@
+.button {
+    transition: background-color .3s,color .3s,border-color .3s;
+    background-color: transparent;
+}
+
+.button:hover {
+    background-color: #2979FF
+}
+
+.headerComponent-appear {
+    opacity: 0.01;
+  }
+  
+.headerComponent-appear.headerComponent-appear-active {
+  opacity: 1;
+  transition: .5s all ease-in;
+}

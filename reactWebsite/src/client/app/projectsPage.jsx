@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Resize from 'react-resize';
-import Header from './components/header.jsx';
+import Header from './components/header/oldHeader.jsx';
 import ProjectComponent from './components/project/projectDetail/ProjectComponent.jsx';
 import Footer from './components/footer.jsx';
 import ShowCaseProject from './components/project/projectBlock/showCaseProject.jsx';
@@ -218,7 +218,7 @@ class ProjectsPage extends React.Component {
         return (<div style={container}>
             <Resize>
                 <div onClick={this.hideProjectDetailsPopup.bind(this)}>
-                    <div id='projects' style={Object.assign({
+                    <div id='ProjectsPage' style={Object.assign({
                             opacity: this.state.projectOpacity
                     }, projectContainer)}>
                         {items}

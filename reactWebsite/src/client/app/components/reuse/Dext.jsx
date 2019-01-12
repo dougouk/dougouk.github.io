@@ -14,7 +14,8 @@ class Dext extends React.Component {
 }
 
 const textStyle = {
-    fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
+    fontFamily: 'Roboto'
+    // fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
 }
 
 export default Dext;
