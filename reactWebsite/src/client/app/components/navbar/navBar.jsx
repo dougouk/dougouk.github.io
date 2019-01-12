@@ -68,6 +68,11 @@ class NavBarComponent extends React.Component {
             //     link: '#footer',
             //     routerLink: '/'
             // }
+            {
+                name: 'Resume',
+                image: null,
+                link: './reactWebsite/src/client/app/resources/resume.pdf',
+            }
         ];
 
         let items = contactLinks.map((contact, index) =>
@@ -97,17 +102,35 @@ class NavBarComponent extends React.Component {
       }
 
   getButton(props, index) {
-      return (
-            <Link to={props.routerLink}
-                style={buttonStyle}
-                key={index}>
-                <div style={buttonStyle}>
-                    <Dext style={linkStyle}>
-                        {props.name}
-                    </Dext>
-                </div>
-            </Link>
-      )
+      if (props.routerLink) {
+          // Is a webpage.
+            return (
+                <Link to={props.routerLink}
+                    style={buttonStyle}
+                    key={index}>
+                    <div style={buttonStyle}>
+                        <Dext style={linkStyle}>
+                            {props.name}
+                        </Dext>
+                    </div>
+                </Link>
+        )
+      } else {
+          // Is a file link.
+            return (
+                <a href={props.link}
+                    target='_blank'
+                    style={buttonStyle}
+                    key={index}>
+                    <div style={buttonStyle}>
+                        <Dext style={linkStyle}>
+                            {props.name}
+                        </Dext>
+                    </div>
+                </a>
+        )
+      }
+      
   }
 
   handleClick(e){
