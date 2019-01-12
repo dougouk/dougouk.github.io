@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import MainPage from './mainPage.jsx';
+import MainPage from './mainPage/mainPage.jsx';
 import ProjectsPage from './projectsPage.jsx';
-import AboutPage from './aboutPage.jsx';
+import AboutPage from './aboutPage/aboutPage.jsx';
 import NavBarComponent from './components/navbar/navBar.jsx';
 import './components/reuse/animations.css';
 
@@ -20,7 +20,7 @@ class MyRouter extends React.Component {
                     classNames="example" > */}
                         <Switch>
                             <Route exact path='/' component={MainPage}/>
-                            <Route path='/projects' component={ProjectsPage}/>
+                            <Route path='/projectsPage' component={ProjectsPage}/>
                             <Route path='/about' component={AboutPage}/>
                         </Switch>
                     {/* </CSSTransition> */}

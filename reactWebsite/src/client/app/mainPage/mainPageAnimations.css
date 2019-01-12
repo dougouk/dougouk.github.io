@@ -1,0 +1,8 @@
+.headerComponent-appear {
+    opacity: 0.01;
+  }
+  
+.headerComponent-appear.headerComponent-appear-active {
+  opacity: 1;
+  transition: .5s all ease-in;
+}

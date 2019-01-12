@@ -60,7 +60,7 @@ class NavBarComponent extends React.Component {
                 name: 'Projects',
                 image: require('../../images/email.png'),
                 link: '#projects',
-                routerLink: '/projects'
+                routerLink: '/projectsPage'
             },
             // {
             //     name: 'Contact',

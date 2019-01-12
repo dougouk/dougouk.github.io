@@ -52,7 +52,6 @@ class ShowCaseProject extends React.Component {
             <div style={mainContainerStyle}>
                 <div style={textDiv}>
                     <TransitionGroup>
-                        
                         <CSSTransition
                             key={title}
                             classNames='showCaseProjectTitle'
