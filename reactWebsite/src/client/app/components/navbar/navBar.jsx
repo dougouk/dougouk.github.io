@@ -144,7 +144,8 @@ const container = {
     height: '5em',
     display: 'flex',
     justifyContent: 'flex-end',
-    position: 'fixed'
+    position: 'fixed',
+    zIndex: 1
 };
 
 const buttonStyle = {
