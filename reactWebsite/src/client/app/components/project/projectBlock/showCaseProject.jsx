@@ -191,8 +191,8 @@ class ShowCaseProject extends React.Component {
             
         }
         const demoImage1Style = {
-            width: '60%',
-            height: '60%',
+            width: 'auto',
+            maxHeight: '80%',
             transform: 'translate(-1rem)'
         }
         const demoImage2Style = {
