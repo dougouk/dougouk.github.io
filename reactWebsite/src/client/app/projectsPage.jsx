@@ -94,8 +94,8 @@ const projects = [
         type: 'Arduino & Android',
         logo: require('./images/projects/deafband.png'),
         demoImage1: require('./images/portfolio/deafband/fire.png'),
-        shortDescription: 'If you can\'t hear them, feel them',
-        description: 'DeafBand is a headband-like device that can recognize and ' + 'pinpoint the direction of certain sounds such as car horns, screaming, etc. ' + 'Being developed as the Fourth Year Design Project at the University of Waterloo.',
+        shortDescription: 'Trained to recognize life-threatening situations',
+        description: 'DeafBand is a headband-like device that can recognize and ' + 'pinpoint the direction of certain sounds such as car horns, screaming, etc. ' + 'Developed as a Fourth Year Design Project at the University of Waterloo.',
         playStore: 'https://play.google.com/store/apps/details?id=com.dan190.deafband',
         tags: [
             'Arduino', 'Android', 'Java', 'C', 'Bluetooth Stack'
