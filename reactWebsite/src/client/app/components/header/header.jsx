@@ -41,29 +41,25 @@ class Header extends React.Component {
         let description = "Software Developer";
         let buttonText = "What I do";
         let link = '#Projects';
-        // let imageSrc = this.props.imageSrc;
+        let imageSrc = this.props.imageSrc;
 
         if(isMobile) {
-            return (<div id="home" style={mainContainerMobile}>
-                <div style={imageDivMobile}>
-                    <img src={imageSrc} style={imageStyleMobile}/>
-                </div>
-                <div style={textDivMobile}>
-                    <Dext inputStyle={titleStyleMobile}>
-                        {title}
-                    </Dext>
-                    <Dext inputStyle={descriptionStyleMobile}>
-                        {description}
-                    </Dext>
-
-                    <Link to={link} style={buttonStyleMobile}>
-                        <Dext>
-                            {buttonText}
+            return (
+            <MyTransition
+                transitionClassName='headerComponent'>
+                <div style={mainContainerMobile}>
+                    <div style={textDivMobile}>
+                
+                        <Dext inputStyle={titleStyleMobile}>
+                            {title}
                         </Dext>
-                    </Link>
+                    <div style={dividerDesktop}/>
+                        <Dext inputStyle={descriptionStyleMobile}>
+                            {description}
+                        </Dext>
+                    </div>
                 </div>
-
-            </div>);
+            </MyTransition>);
         } else {
             return (
                 <MyTransition
@@ -162,6 +158,8 @@ const dividerDesktop = {
 
 // Mobile styles.
 const mainContainerMobile = {
+    background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
+    backgroundSize: 'cover',
     margin: '0',
     padding: '0',
     width: '100%',

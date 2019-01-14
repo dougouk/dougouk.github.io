@@ -43,7 +43,11 @@ class ShowCaseComponent extends React.Component {
         let imageSrc = this.props.imageSrc;
 
         if(isMobile) {
-            return (<div id={this.props.title} style={mainContainerMobile}>
+            return (<div className={styles.header} 
+                id={this.props.title} 
+                style={Object.assign({
+                    backgroundColor: this.props.color
+                    }, mainContainerMobile)}>
                 <div style={imageDivMobile}>
                     <img src={imageSrc} style={imageStyleMobile}/>
                 </div>
@@ -200,7 +204,8 @@ const descriptionStyleMobile = {
 const buttonStyleMobile = {
     flex: 2,
     display: 'flex',
-    width: '60%',
+    maxHeight: '3em',
+    width: '50%',
     flexDirection: 'column',
     justifyContent: 'center',
     textDecoration: 'none',

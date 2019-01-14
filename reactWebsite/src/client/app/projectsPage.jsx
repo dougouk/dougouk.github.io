@@ -268,7 +268,7 @@ const projectContainer = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    marginTop: '5em'
+    marginTop: '4em'
 }
 
 const danguinStyle = {

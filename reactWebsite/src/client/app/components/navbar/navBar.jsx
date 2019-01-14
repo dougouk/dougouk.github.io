@@ -6,45 +6,66 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class NavBarComponent extends React.Component {
     constructor(props){
-      super(props);
-      this.state= {
-          isHide: false
-      };
-      this.hideBar = this.hideBar.bind(this)
+        super(props);
+        this.state= {
+            shouldHideNavBar: false,
+            shouldExpandMobileMenu: false,
+            width: window.innerWidth
+        };
+        this.hideBar = this.hideBar.bind(this);
+        this.handleWindowChange = this.handleWindowChange.bind(this);
+    }
+
+    componentWillMount() {
+        console.log('Navbar componentWillMount');
+        window.addEventListener('resize', this.handleWindowChange);
+    }
+
+    handleWindowChange() {
+        // Update window width.
+        this.setState({width: window.innerWidth});
+    }
+
+    componentDidMount(){
+        window.addEventListener('scroll', this.hideBar);
+    }
+
+    componentWillUnmount(){
+        console.log('Navbar componentWillUnmount');
+        window.removeEventListener('resize', this.handleWindowChange);
+        window.removeEventListener('scroll', this.hideBar);
     }
 
     hideBar(){
         // As you scroll down, scrollY will be higher
-        let hidden = this.state.isHide
+        let hidden = this.state.shouldHideNavBar
         if (window.scrollY > this.prev && !hidden) {
-            // Scrolling down, and not hidden
-            // Hide the navbar
-            this.setState({isHide: true});
+            // Scrolling down, and currently showing navbar.
+            // Hide the navbar.
+            this.setState({shouldHideNavBar: true});
             // TODO animation
         } else if (window.scrollY < this.prev && hidden) {
-            // Scrolling up, and hidden
-            // Show the navbar
+            // Scrolling up, and navbar is hidden.
+            // Show the navbar.
             this.show();
         }
 
         this.prev = window.scrollY;
     }
 
-    componentDidMount(){
-        window.addEventListener('scroll',this.hideBar);
-    }
-
-    componentWillUnmount(){
-         window.removeEventListener('scroll',this.hideBar);
-    }
-
     show() {
         // TODO animation
-        this.setState({isHide: false});
+        this.setState({shouldHideNavBar: false});
     }
 
-    render () {
-        let contactLinks = [
+    mobileMenuButtonOnClick() {
+        const newState = !this.state.shouldExpandMobileMenu;
+        console.log(newState);
+        this.setState({ shouldExpandMobileMenu: newState});
+    }
+
+    getMenuButtons() {
+        const contactLinks = [
             {
                 name: 'Home',
                 image: require('../../images/github_white.png'),
@@ -75,13 +96,29 @@ class NavBarComponent extends React.Component {
             }
         ];
 
-        let items = contactLinks.map((contact, index) =>
+        const items = contactLinks.map((contact, index) =>
             {
-                console.log(contact);
                 return this.getButton(contact, index);  
             }
         );
-        if (!this.state.isHide) {
+
+        return items;
+    }
+
+    render () {
+        const width = this.state.width;
+        const isMobile = width <= 500;
+        if (isMobile) {
+            const menuButtons = this.getMenuButtons();
+            return this.renderMobileMenu(menuButtons);
+        } else {
+            const menuButtons = this.getMenuButtons();
+            return this.renderDesktopMenu(menuButtons);
+        }
+      }
+      
+    renderDesktopMenu(menuButtons) {
+        if (!this.state.shouldHideNavBar) {
             return (
                     <TransitionGroup>
                         <CSSTransition
@@ -90,7 +127,7 @@ class NavBarComponent extends React.Component {
                             timeout={300}
                             appear={true}>
                             <div style={container}>
-                                {items};
+                                {menuButtons};
                             </div>
                         </CSSTransition>
                     </TransitionGroup>
@@ -98,38 +135,77 @@ class NavBarComponent extends React.Component {
         } else {
             return (<div></div>);
         }
+    }
 
-      }
+    renderMobileMenu(menuButtons) {
+        if (!this.state.shouldHideNavBar) {
+            if (!this.state.shouldExpandMobileMenu) {
+                return (
+                    <div style={mobileMenuStyle}>
+                        <img style={mobileMenuLogoStyle} src={menuImage} onClick={this.mobileMenuButtonOnClick.bind(this)}/>
+                    </div>
+                );
+            } else {
+                return (
+                    <div style={mobileMenuStyle}>
+                        <img style={mobileMenuLogoStyle} src={crossImage} onClick={this.mobileMenuButtonOnClick.bind(this)}/>
+                        <TransitionGroup style={mobileExpandedMenuContainerStyle}>
+                            <CSSTransition
+                                key={'navBar'}
+                                classNames='navBar'
+                                timeout={300}
+                                appear={true}>
+                                <div>
+                                    {menuButtons}
+                                </div>
+                            </CSSTransition>
+                        </TransitionGroup>
+                    </div>
+                );
+            }
+        } else {
+            return (<div></div>);
+        }
+    }
 
-  getButton(props, index) {
-      if (props.routerLink) {
-          // Is a webpage.
-            return (
-                <Link to={props.routerLink}
-                    style={buttonStyle}
-                    key={index}>
-                    <div style={buttonStyle}>
-                        <Dext style={linkStyle}>
-                            {props.name}
-                        </Dext>
-                    </div>
-                </Link>
-        )
-      } else {
-          // Is a file link.
-            return (
-                <a href={props.link}
-                    target='_blank'
-                    style={buttonStyle}
-                    key={index}>
-                    <div style={buttonStyle}>
-                        <Dext style={linkStyle}>
-                            {props.name}
-                        </Dext>
-                    </div>
-                </a>
-        )
-      }
+    getButton(props, index) {
+        const width = this.state.width;
+        const isMobile = width <= 500;
+        var menuStyle;
+        if (isMobile) {
+            menuStyle = buttonStyleMobile;
+        } else {
+            menuStyle = buttonStyle;
+        }
+        
+        if (props.routerLink) {
+            // Button links to a webpage.
+                return (
+                    <Link to={props.routerLink}
+                        style={menuStyle}
+                        key={index}>
+                        <div style={menuStyle}>
+                            <Dext style={linkStyle}>
+                                {props.name}
+                            </Dext>
+                        </div>
+                    </Link>
+            )
+        } else {
+            // Button links to a file.
+                return (
+                    <a href={props.link}
+                        target='_blank'
+                        style={menuStyle}
+                        key={index}>
+                        <div style={menuStyle}>
+                            <Dext style={linkStyle}>
+                                {props.name}
+                            </Dext>
+                        </div>
+                    </a>
+        )       
+    }
       
   }
 
@@ -137,6 +213,9 @@ class NavBarComponent extends React.Component {
       e.preventDefault();
   }
 }
+
+const menuImage = require('../../images/buttons/menu/menu.png');
+const crossImage = require('../../images/buttons/menu/cross.png');
 
 const container = {
     backgroundColor: '#2979FF',
@@ -148,7 +227,37 @@ const container = {
     zIndex: 1
 };
 
-const buttonStyle = {
+const mobileMenuStyle = {
+    backgroundColor: '#2979FF',
+    width: '101%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    position: 'fixed',
+    zIndex: 1,
+    transition: '.25s ease-in-out,background-color .3s ease-out'
+}
+
+const mobileExpandedMenuContainerStyle = {
+    backgroundColor: '#2979FF',
+    width: '101%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
+    transition: '.25s ease-in-out'
+}
+
+const mobileMenuLogoStyle = {
+    maxWidth: '100%',
+    height: 'auto',
+    margin: '.5em',
+    transition: '.25s ease-in-out,background-color .3s ease-out'
+}
+
+var buttonStyle = {
     display: 'flex',
     alignItems: 'center',
     height: '90%',
@@ -157,6 +266,17 @@ const buttonStyle = {
     textDecoration: 'none',
     marginRight: '10px'
 };
+
+const buttonStyleMobile = {
+    display: 'flex',
+    alignSelf: 'center',
+    maxWidth: '100%',
+    height: 'auto',
+    color: '#fff',
+    fontSize: '1.5em',
+    textDecoration: 'none',
+    marginRight: '10px'
+}
 
 const linkStyle = {
     flex: 1
