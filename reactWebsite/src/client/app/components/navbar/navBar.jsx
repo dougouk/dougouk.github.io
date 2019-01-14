@@ -60,7 +60,6 @@ class NavBarComponent extends React.Component {
 
     mobileMenuButtonOnClick() {
         const newState = !this.state.shouldExpandMobileMenu;
-        console.log(newState);
         this.setState({ shouldExpandMobileMenu: newState});
     }
 

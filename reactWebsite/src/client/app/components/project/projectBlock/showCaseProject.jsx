@@ -101,7 +101,7 @@ class ShowCaseProject extends React.Component {
                     <CSSTransition
                         key={demoImage1} 
                         classNames='componentImage'
-                        timeout={700}
+                        timeout={800}
                         appear={true}>
                         <img src={demoImage1} style={demoImage1Style}/>
                     </CSSTransition>
@@ -183,8 +183,8 @@ class ShowCaseProject extends React.Component {
             height: '100%'
         };
         const logoStyle = {
-            width: '25%',
-            height: '25%',
+            width: '10em',
+            height: 'auto',
             paddingBottom: '3em'
         };
         const demoDivStyle = {
@@ -278,8 +278,8 @@ class ShowCaseProject extends React.Component {
             alignItems: 'center'
         };
         const logoStyle = {
-            width: '25%',
-            height: '25%'
+            width: '10em',
+            height: 'auto',
         };
         const demoDivStyle = {
             width: 0, // Dont' show demo in mobile view.
