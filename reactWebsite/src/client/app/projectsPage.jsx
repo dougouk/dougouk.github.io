@@ -30,7 +30,7 @@ const projects = [
         logo: require('./images/portfolio/letsEat/logo.png'),
         demoImage1: require('./images/portfolio/letsEat/demo.png'),
         shortDescription: 'Sometimes, food goes bad and we end up wasting it. Let\'s stop that.',
-        description: 'Recipes curated to your groceries\' expiry date, and a smart assistant to help you have a hands-free cooking experience (this was the Google Assistant Smart Displays came out).',
+        description: 'Recipes curated to your groceries\' expiry date, and a smart assistant to help you have a hands-free cooking experience (this was before the Google Assistant Smart Displays came out).',
         devPost: 'https://devpost.com/software/mangez',
         tags: [
             'Dialogue SDK', 'Firebase Functions', 'NodeJS', 'Android', 'Google Assitant Chatbot'
