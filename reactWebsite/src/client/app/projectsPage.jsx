@@ -168,7 +168,7 @@ const projects = [
         type: 'WebApp',
         logo: require('./images/portfolio/foody.png'),
         demoImage1: require('./images/portfolio/foody/demo.png'),
-        shortDescription: 'Foody, what do should I eat?',
+        shortDescription: 'Foody, what should I eat?',
         description: 'Voice-controlled WebApp that suggests restaurant dishes ' + 'based on user feedback. Uses NLP.',
         devPost: 'https://devpost.com/software/foody-lfbvrn',
         tags: [
