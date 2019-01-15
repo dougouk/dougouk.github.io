@@ -8,6 +8,36 @@ import ShowCaseProject from './components/project/projectBlock/showCaseProject.j
 
 const projects = [
     {
+        title: 'GreenDetect',
+        date: '2018',
+        type: 'Machine Learning - Android Application',
+        awards: ['ImplementAI 2018 2nd Place'],
+        logo: require('./images/portfolio/greenDetect/logo.png'),
+        demoImage1: require('./images/portfolio/greenDetect/demo.png'),
+        shortDescription: 'Find out what\'s wrong with your plant with a single picture.',
+        description: 'Is your plant dying? Could it have a disease? Find out with a picture.',
+        devPost: 'https://devpost.com/software/green-detect',
+        tags: [
+            'Azure Custom Vision', 'Android', 'Machine Learning', 'Convolutional Neural Networks'
+        ],
+        color: '#1B5E20'
+    },
+    {
+        title: 'Lets Eat',
+        date: '2018',
+        type: 'Smart home application - Google home',
+        awards: ['UofTHacks2018 Krates Winner'],
+        logo: require('./images/portfolio/letsEat/logo.png'),
+        demoImage1: require('./images/portfolio/letsEat/demo.png'),
+        shortDescription: 'Sometimes, food goes bad and we end up wasting it. Let\'s stop that.',
+        description: 'Recipes curated to your groceries\' expiry date, and a smart assistant to help you have a hands-free cooking experience (this was the Google Assistant Smart Displays came out).',
+        devPost: 'https://devpost.com/software/mangez',
+        tags: [
+            'Dialogue SDK', 'Firebase Functions', 'NodeJS', 'Android', 'Google Assitant Chatbot'
+        ],
+        color: '#E8E1BF'
+    },
+    {
         title: 'Trendy',
         date: '2017',
         type: 'Facebook Chat Bot',

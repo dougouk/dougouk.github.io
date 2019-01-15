@@ -149,7 +149,7 @@ class ShowCaseProject extends React.Component {
             color: this.props.textColor,
             marginTop: '2em',
             marginBottom: '3em',
-            width: '80%'
+            maxWidth: '80%'
         };
         const buttonStyle = {
             display: 'flex',
@@ -192,6 +192,7 @@ class ShowCaseProject extends React.Component {
         }
         const demoImage1Style = {
             width: 'auto',
+            maxWidth: '600px',
             maxHeight: '80%',
             transform: 'translate(-1rem)'
         }
