@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Dext from '../reuse/Dext.jsx';
+import { PrimaryDark } from '../reuse/Colors.jsx';
 import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -217,7 +218,7 @@ const menuImage = require('../../images/buttons/menu/menu.png');
 const crossImage = require('../../images/buttons/menu/cross.png');
 
 const container = {
-    backgroundColor: '#2979FF',
+    backgroundColor: PrimaryDark,
     width: '101%',
     height: '5em',
     display: 'flex',
@@ -227,7 +228,7 @@ const container = {
 };
 
 const mobileMenuStyle = {
-    backgroundColor: '#2979FF',
+    backgroundColor: PrimaryDark,
     width: '101%',
     display: 'flex',
     flexDirection: 'column',
@@ -239,7 +240,7 @@ const mobileMenuStyle = {
 }
 
 const mobileExpandedMenuContainerStyle = {
-    backgroundColor: '#2979FF',
+    backgroundColor: PrimaryDark,
     width: '101%',
     display: 'flex',
     flexDirection: 'column',

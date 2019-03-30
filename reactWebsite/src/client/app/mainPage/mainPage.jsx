@@ -7,6 +7,8 @@ import Footer from '../components/footer.jsx';
 import {TransitionGroup, CSSTransition } from 'react-transition-group';
 import './mainPageAnimations.css'
 
+import * as Colors from '../components/reuse/Colors.jsx';
+
 const lightBlue = '#87b4ff';
 const darkBlue = '#2979FF';
 const blueColor = '#42A5F5';
@@ -31,7 +33,7 @@ const showcases = [
         description: 'Hackathon and side projects',
         buttonText: 'See my projects',
         link: '/projectsPage',
-        color: darkBlue,
+        color: Colors.PrimaryColor,
         imageSrc: require('../images/coding.jpg'),
     },
     // {
@@ -92,7 +94,7 @@ class MainPage extends React.Component {
                 </TransitionGroup> */}
                 <Header/> 
                 {items}
-                <div style={danguinStyle}/>
+                {/* <div style={danguinStyle}/> */}
                 <Footer/>
             </Resize>
         </div>);
