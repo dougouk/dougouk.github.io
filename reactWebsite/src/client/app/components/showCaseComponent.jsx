@@ -34,7 +34,6 @@ class ShowCaseComponent extends React.Component {
         const isMobile = this.state.width <= 500;
 
 
-        console.log('render');
         let color = this.props.color;
         let title = this.props.title;
         let description = this.props.description;

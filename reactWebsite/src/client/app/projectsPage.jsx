@@ -35,7 +35,7 @@ const projects = [
         tags: [
             'Dialogue SDK', 'Firebase Functions', 'NodeJS', 'Android', 'Google Assitant Chatbot'
         ],
-        color: '#E8E1BF'
+        color: '#ffcc80'
     },
     {
         title: 'Trendy',

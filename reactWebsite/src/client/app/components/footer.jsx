@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+import { PrimaryDark } from './reuse/Colors.jsx';
 
 class Footer extends React.Component {
   render () {
@@ -50,7 +51,7 @@ const footerContainer = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#448AFF'
+    backgroundColor: PrimaryDark
 };
 
 const nameStyle = {

@@ -7,6 +7,8 @@ import Dext from '../reuse/Dext.jsx';
 import MyTransition from '../reuse/MyTransition.jsx';
 import './headerAnimations.css'
 
+import { DanguinGlasses } from '../reuse/ImageLinks.jsx';
+
 class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -43,7 +45,7 @@ class Header extends React.Component {
         let link = '#Projects';
         let imageSrc = this.props.imageSrc;
 
-        if(isMobile) {
+        if (isMobile) {
             return (
             <MyTransition
                 transitionClassName='headerComponent'>
@@ -93,7 +95,7 @@ class Header extends React.Component {
 
 // Desktop styles.
 const mainContainerDesktop = {
-    background: 'url("./reactWebsite/src/client/app/images/bg.jpg") no-repeat center center scroll',
+    background: `${DanguinGlasses} no-repeat center center scroll`,
     backgroundSize: 'cover',
     margin: '0',
     padding: '0',
